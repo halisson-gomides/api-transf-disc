@@ -1,0 +1,6 @@
+**/__pycache__/
+**/*.sql
+**/*.env
+**/*.log
+**/*.txt
+**/*.backup
