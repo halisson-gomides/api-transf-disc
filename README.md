@@ -8,6 +8,7 @@ Transferências discricionárias e legais são repasses de recursos públicos qu
 >- São um sistema de cooperação que visa a execução de ações de interesse recíproco 
 >- São voluntárias, ou seja, estão condicionadas à decisão de uma autoridade competente 
 >- As transferências específicas são um tipo de transferência discricionária que tem requisitos legais e fiscais mais flexíveis 
+
 >**Transferências legais**
 >- São transferências do Sistema Único de Saúde (SUS) e do Sistema Único de Assistência Social (SUAS).
 
