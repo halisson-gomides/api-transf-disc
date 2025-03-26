@@ -69,4 +69,4 @@ async def consulta_proponente(
     
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                            detail=config.ERROR_MESSAGE_INTERNAL_SERVER_ERROR)
+                            detail=config.ERROR_MESSAGE_INTERNAL)

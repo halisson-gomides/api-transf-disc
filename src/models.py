@@ -15,14 +15,12 @@ class ProgramaProponentes(BaseModel, table=True):
     id_programa: int = Field(foreign_key=f"{db_schema}.programa.id_programa", primary_key=True)
     id_proponente: int = Field(foreign_key=f"{db_schema}.proponentes.id_proponente", primary_key=True)
 
-
 # Tabela programa_proposta
 class ProgramaProposta(BaseModel, table=True):
     __tablename__ = "programa_proposta"
     
     id_programa: int = Field(foreign_key=f"{db_schema}.programa.id_programa", primary_key=True)
     id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
-
 
 # Tabela programa
 class Programa(BaseModel, table=True):
@@ -130,3 +128,17 @@ class Proposta(BaseModel, table=True):
         back_populates="propostas",
         link_model=ProgramaProposta
     )
+
+# Tabela justificativas_proposta
+class JustificativasProposta(BaseModel, table=True):
+    __tablename__ = "justificativas_proposta"
+    
+    id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)    
+    caracterizacao_interesses_reci: str
+    publico_alvo: str
+    problema_a_ser_resolvido: str
+    resultados_esperados: str
+    relacao_proposta_objetivos_pro: str
+    capacidade_tecnica: str
+    justificativa: str
+

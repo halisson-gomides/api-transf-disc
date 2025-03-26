@@ -120,4 +120,20 @@ class ProgramaResponse(BaseModel):
 
 class PaginatedProgramaResponse(PaginatedResponseTemplate):
     data: List[ProgramaResponse]
+
+
+class JustificativasPropostaResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_proposta: Optional[int]
+    caracterizacao_interesses_reci: Optional[str]
+    publico_alvo: Optional[str]
+    problema_a_ser_resolvido: Optional[str]
+    resultados_esperados: Optional[str]
+    relacao_proposta_objetivos_pro: Optional[str]
+    capacidade_tecnica: Optional[str]
+    justificativa: Optional[str]
    
+
+class PaginatedJustificativasPropostaResponse(PaginatedResponseTemplate):
+    data: List[JustificativasPropostaResponse]
