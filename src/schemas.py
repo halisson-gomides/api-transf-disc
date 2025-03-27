@@ -137,3 +137,46 @@ class JustificativasPropostaResponse(BaseModel):
 
 class PaginatedJustificativasPropostaResponse(PaginatedResponseTemplate):
     data: List[JustificativasPropostaResponse]
+
+
+class PropostaCanceladaResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_proposta: Optional[int]
+    uf_proponente: Optional[str]
+    munic_proponente: Optional[str]
+    cod_munic_ibge: Optional[str]
+    cod_orgao_sup: Optional[str]
+    desc_orgao_sup: Optional[str]
+    natureza_juridica: Optional[str]
+    nr_proposta: Optional[str]
+    dia_prop: Optional[int]
+    mes_prop: Optional[int]
+    ano_prop: Optional[int]
+    dia_proposta: Optional[date]
+    cod_orgao: Optional[str]
+    desc_orgao: Optional[str]
+    modalidade: Optional[str]
+    identif_proponente: Optional[str]
+    nm_proponente: Optional[str]
+    cep_proponente: Optional[str]
+    endereco_proponente: Optional[str]
+    bairro_proponente: Optional[str]
+    nm_banco: Optional[str]
+    situacao_conta: Optional[str]
+    situacao_projeto_basico: Optional[str]
+    sit_proposta: Optional[str]
+    dia_inic_vigencia_proposta: Optional[date]
+    dia_fim_vigencia_proposta: Optional[date]
+    objeto_proposta: Optional[str]
+    item_investimento: Optional[str]
+    enviada_mandataria: Optional[str]
+    vl_global_prop: Optional[float]
+    vl_repasse_prop: Optional[float]
+    vl_contrapartida_prop: Optional[float]
+    nome_subtipo_proposta: Optional[str]
+    descricao_subtipo_proposta: Optional[str]
+
+
+class PaginatedPropostaCanceladaResponse(PaginatedResponseTemplate):
+    data: List[PropostaCanceladaResponse]

@@ -26,6 +26,7 @@ from src.routers.programa import pg_router
 from src.routers.proponente import prop_router
 from src.routers.proposta import prtas_router
 from src.routers.justificativas_proposta import jus_prop_router
+from src.routers.proposta_cancelada import prop_cancel_router
 
 # Configuração do logger
 logging.basicConfig(level=logging.INFO)
@@ -109,6 +110,8 @@ app.include_router(pg_router)
 app.include_router(prop_router)
 app.include_router(prtas_router)
 app.include_router(jus_prop_router)
+app.include_router(prop_cancel_router)
+
 
 @app.get("/docs", include_in_schema=False)
 async def swagger_ui_html():
@@ -175,7 +178,7 @@ async def get_stats(username: str = Depends(verify_admin)):
             </head>
             <body>
                 <header>
-                    <h1>API-FAF - Estatísticas</h1>
+                    <h1>API-Discricionárias e Legais - Estatísticas</h1>
                     <p>Estatísticas relativas aos endpoints do serviço de API</p>
                 </header>
                 <main>
@@ -438,4 +441,4 @@ async def stats_ws(websocket: WebSocket):
 
 
 # Run in terminal
-# uvicorn main:app --host 0.0.0.0 --port 8000 --reload --log-config log_conf.yaml
+# uvicorn main:app --host 0.0.0.0 --port 8000 --reload --log-config log_conf.yaml --workers 4

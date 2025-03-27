@@ -142,3 +142,43 @@ class JustificativasProposta(BaseModel, table=True):
     capacidade_tecnica: str
     justificativa: str
 
+# Tabela proposta_cancelada
+class PropostaCancelada(BaseModel, table=True):
+    __tablename__ = "proposta_cancelada"
+    
+    id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
+    uf_proponente: str
+    munic_proponente: str
+    cod_munic_ibge: str
+    cod_orgao_sup: str
+    desc_orgao_sup: str
+    natureza_juridica: str
+    nr_proposta: str
+    dia_prop: int
+    mes_prop: int
+    ano_prop: int
+    dia_proposta: date
+    cod_orgao: str
+    desc_orgao: str
+    modalidade: str
+    identif_proponente: str
+    nm_proponente: str
+    cep_proponente: str
+    endereco_proponente: str
+    bairro_proponente: str
+    nm_banco: str
+    situacao_conta: str
+    situacao_projeto_basico: str
+    sit_proposta: str
+    dia_inic_vigencia_proposta: date
+    dia_fim_vigencia_proposta: date
+    objeto_proposta: str
+    item_investimento: str
+    enviada_mandataria: str
+    vl_global_prop: float
+    vl_repasse_prop: float
+    vl_contrapartida_prop: float
+    nome_subtipo_proposta: str
+    descricao_subtipo_proposta: str
+
+
