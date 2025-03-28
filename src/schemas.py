@@ -180,3 +180,35 @@ class PropostaCanceladaResponse(BaseModel):
 
 class PaginatedPropostaCanceladaResponse(PaginatedResponseTemplate):
     data: List[PropostaCanceladaResponse]
+
+
+class PropostaSelecaoPacResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_proposta_selecao_pac: Optional[int]
+    id_programa: Optional[int]
+    id_proponente: Optional[int]
+    nr_proposta_selecao_pac: Optional[str]
+    data_cadastro_proposta_selecao_pac: Optional[datetime]
+    data_envio_proposta_selecao_pac: Optional[datetime]
+    objeto_proposta_selecao_pac: Optional[str]
+    situacao_proposta_selecao_pac: Optional[str]
+    valor_total_proposta_selecao_pac: Optional[float]
+    justificativa_proposta_selecao_pac: Optional[str]
+    tem_anexo_proposta_selecao_pac: Optional[str]
+
+
+class PaginatedPropostaSelecaoPacResponse(PaginatedResponseTemplate):
+    data: List[PropostaSelecaoPacResponse]
+
+
+class PerguntaSelecaoPacResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_pergunta_selecao_pac: Optional[int]
+    id_programa: Optional[int]
+    pergunta_selecao_pac: Optional[str]
+
+
+class PaginatedPerguntaSelecaoPacResponse(PaginatedResponseTemplate):
+    data: List[PerguntaSelecaoPacResponse]

@@ -38,7 +38,7 @@ async def consulta_programa(
     dt_prog_fim_benef_esp: Optional[str] = Query(None, description="Data Fim para o recebimento das propostas de beneficiário específico para o Programa", pattern="^[0-9]{4}-[0-9]{2}-[0-9]{2}$"),
     modalidade_programa: Literal['CONTRATO DE REPASSE', 'CONVENIO', 'TERMO DE COLABORACAO', 'TERMO DE FOMENTO', 'TERMO DE PARCERIA'] = Query(None, description="Modalidade do Programa."),
     natureza_juridica_programa: Optional[str] = Query(None, description="Natureza Jurídica Atendida pelo Programa. Domínio: Administração Pública Estadual ou do Distrito Federal, Administração Pública Municipal, Consórcio Público, Empresa pública/Sociedade de economia mista e Organização da Sociedade Civil"),
-    uf_programa: Optional[str] = Query(None, description="Ufs Habilitadas para o Programa. Domínio: AC, AL, AM, AP, BA, CE, DF, ES, GO, MA, MG, MS, MT, PA, PB, PE, PI, PR, RJ, RN, RO, RR, RS, SC, SE, SP, TO, <null>. Quando o valor é nulo, o programa atende a todo o Brasil"),
+    uf_programa: Literal['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'] = Query(None, description="Ufs Habilitadas para o Programa. Quando o valor é nulo, o programa atende a todo o Brasil"),
     acao_orcamentaria: Optional[str] = Query(None, description="Número da Ação Orçamentária"),
     nome_subtipo_programa: Optional[str] = Query(None, description="Nome do subtipo de instrumento"),
     descricao_subtipo_programa: Optional[str] = Query(None, description="Descrição do subtipo do instrumento"),

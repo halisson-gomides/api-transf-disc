@@ -182,3 +182,26 @@ class PropostaCancelada(BaseModel, table=True):
     descricao_subtipo_proposta: str
 
 
+class PropostaSelecaoPac(BaseModel, table=True):
+    __tablename__ = "proposta_selecao_pac"
+    
+    id_proposta_selecao_pac: int = Field(primary_key=True)
+    id_programa: int = Field(foreign_key=f"{db_schema}.programa.id_programa")
+    id_proponente: int = Field(foreign_key=f"{db_schema}.proponentes.id_proponente")
+    nr_proposta_selecao_pac: str
+    data_cadastro_proposta_selecao_pac: datetime
+    data_envio_proposta_selecao_pac: datetime
+    objeto_proposta_selecao_pac: str
+    situacao_proposta_selecao_pac: str
+    valor_total_proposta_selecao_pac: float
+    justificativa_proposta_selecao_pac: str
+    tem_anexo_proposta_selecao_pac: str
+
+
+class PerguntaSelecaoPac(BaseModel, table=True):
+    __tablename__ = "pergunta_selecao_pac"
+    
+    id_pergunta_selecao_pac: int = Field(primary_key=True)
+    id_programa: int = Field(foreign_key=f"{db_schema}.programa.id_programa")
+    pergunta_selecao_pac: str
+

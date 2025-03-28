@@ -24,7 +24,11 @@ class Settings(BaseSettings):
         {
             "name": "Proposta",
             "description": "Dados relativos às Propostas - Discricionárias e Legais.",
-        },       
+        },     
+        {
+            "name": "PAC",
+            "description": "Dados relativos ao PAC - Discricionárias e Legais.",
+        },  
     ]
     DEFAULT_PAGE_SIZE: int = 10
     MAX_PAGE_SIZE: int = 200
