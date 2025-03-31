@@ -212,3 +212,15 @@ class PerguntaSelecaoPacResponse(BaseModel):
 
 class PaginatedPerguntaSelecaoPacResponse(PaginatedResponseTemplate):
     data: List[PerguntaSelecaoPacResponse]
+
+
+class RespostaSelecaoPacResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_pergunta_selecao_pac: Optional[int]
+    id_proposta_selecao_pac: Optional[int]
+    resposta_selecao_pac: Optional[str]
+
+
+class PaginatedRespostaSelecaoPacResponse(PaginatedResponseTemplate):
+    data: List[RespostaSelecaoPacResponse] 

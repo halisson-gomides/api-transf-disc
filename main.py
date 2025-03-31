@@ -29,6 +29,9 @@ from src.routers.justificativas_proposta import jus_prop_router
 from src.routers.proposta_cancelada import prop_cancel_router
 from src.routers.proposta_selecao_pac import psp_router
 from src.routers.pergunta_selecao_pac import persp_router
+from src.routers.resposta_selecao_pac import ressp_router
+
+
 # Configuração do logger
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -114,6 +117,8 @@ app.include_router(jus_prop_router)
 app.include_router(prop_cancel_router)
 app.include_router(psp_router)  
 app.include_router(persp_router)
+app.include_router(ressp_router)
+
 @app.get("/docs", include_in_schema=False)
 async def swagger_ui_html():
     return get_swagger_ui_html(

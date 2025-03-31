@@ -205,3 +205,10 @@ class PerguntaSelecaoPac(BaseModel, table=True):
     id_programa: int = Field(foreign_key=f"{db_schema}.programa.id_programa")
     pergunta_selecao_pac: str
 
+
+class RespostaSelecaoPac(BaseModel, table=True):
+    __tablename__ = "resposta_selecao_pac"
+
+    id_pergunta_selecao_pac: int = Field(primary_key=True, foreign_key=f"{db_schema}.pergunta_selecao_pac.id_pergunta_selecao_pac")
+    id_proposta_selecao_pac: int = Field(primary_key=True, foreign_key=f"{db_schema}.proposta_selecao_pac.id_proposta_selecao_pac")
+    resposta_selecao_pac: str = Field(default=None, description="Resposta da pergunta da Proposta do Novo PAC") 
