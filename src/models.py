@@ -211,4 +211,12 @@ class RespostaSelecaoPac(BaseModel, table=True):
 
     id_pergunta_selecao_pac: int = Field(primary_key=True, foreign_key=f"{db_schema}.pergunta_selecao_pac.id_pergunta_selecao_pac")
     id_proposta_selecao_pac: int = Field(primary_key=True, foreign_key=f"{db_schema}.proposta_selecao_pac.id_proposta_selecao_pac")
-    resposta_selecao_pac: str = Field(default=None, description="Resposta da pergunta da Proposta do Novo PAC") 
+    resposta_selecao_pac: str = Field(default=None, description="Resposta da pergunta da Proposta do Novo PAC")
+    
+
+class PropostaFormalizacaoPac(BaseModel, table=True):
+    __tablename__ = "proposta_formalizacao_pac"
+    
+    id_proposta_selecao_pac: int = Field(foreign_key=f"{db_schema}.proposta_selecao_pac.id_proposta_selecao_pac", primary_key=True)
+    id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
+    nr_reservado_pac: str 
