@@ -219,4 +219,24 @@ class PropostaFormalizacaoPac(BaseModel, table=True):
     
     id_proposta_selecao_pac: int = Field(foreign_key=f"{db_schema}.proposta_selecao_pac.id_proposta_selecao_pac", primary_key=True)
     id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
-    nr_reservado_pac: str 
+    nr_reservado_pac: str
+
+
+class PlanoAplicacaoDetalhado(BaseModel, table=True):
+    __tablename__ = "plano_aplicacao_detalhado"
+    
+    id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
+    sigla: str
+    municipio: str
+    natureza_aquisicao: int
+    descricao_item: str
+    cep_item: str
+    endereco_item: str
+    tipo_despesa_item: str
+    natureza_despesa: str
+    sit_item: str
+    cod_natureza_despesa: str
+    qtd_item: int
+    valor_unitario_item: float
+    valor_total_item: float
+    id_item_pad: int = Field(primary_key=True)

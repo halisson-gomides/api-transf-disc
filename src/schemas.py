@@ -235,4 +235,28 @@ class PropostaFormalizacaoPacResponse(BaseModel):
 
 
 class PaginatedPropostaFormalizacaoPacResponse(PaginatedResponseTemplate):
-    data: List[PropostaFormalizacaoPacResponse] 
+    data: List[PropostaFormalizacaoPacResponse]
+
+
+class PlanoAplicacaoDetalhadoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_proposta: Optional[int]
+    sigla: Optional[str]
+    municipio: Optional[str]
+    natureza_aquisicao: Optional[int]
+    descricao_item: Optional[str]
+    cep_item: Optional[str]
+    endereco_item: Optional[str]
+    tipo_despesa_item: Optional[str]
+    natureza_despesa: Optional[str]
+    sit_item: Optional[str]
+    cod_natureza_despesa: Optional[str]
+    qtd_item: Optional[int]
+    valor_unitario_item: Optional[float]
+    valor_total_item: Optional[float]
+    id_item_pad: Optional[int]
+
+
+class PaginatedPlanoAplicacaoDetalhadoResponse(PaginatedResponseTemplate):
+    data: List[PlanoAplicacaoDetalhadoResponse] 

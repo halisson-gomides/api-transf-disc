@@ -28,6 +28,10 @@ class Settings(BaseSettings):
         {
             "name": "PAC",
             "description": "Dados relativos ao PAC - Discricionárias e Legais.",
+        },
+        {
+            "name": "Plano de Trabalho",
+            "description": "Dados relativos aos Planos de Trabalho - Discricionárias e Legais.",
         },  
     ]
     DEFAULT_PAGE_SIZE: int = 10
