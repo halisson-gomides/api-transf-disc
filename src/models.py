@@ -28,25 +28,25 @@ class Programa(BaseModel, table=True):
     
     id: int = Field(primary_key=True)
     id_programa: int = Field(primary_key=True)
-    cod_orgao_sup_programa: str
-    desc_orgao_sup_programa: str
-    cod_programa: str
-    nome_programa: str
-    sit_programa: str
-    data_disponibilizacao: date
-    ano_disponibilizacao: str
-    dt_prog_ini_receb_prop: date
-    dt_prog_fim_receb_prop: date
-    dt_prog_ini_emenda_par: date
-    dt_prog_fim_emenda_par: date
-    dt_prog_ini_benef_esp: date
-    dt_prog_fim_benef_esp: date
-    modalidade_programa: str
-    natureza_juridica_programa: str
-    uf_programa: str
-    acao_orcamentaria: str
-    nome_subtipo_programa: str
-    descricao_subtipo_programa: str
+    cod_orgao_sup_programa: str | None = None
+    desc_orgao_sup_programa: str | None = None
+    cod_programa: str | None = None
+    nome_programa: str | None = None
+    sit_programa: str | None = None
+    data_disponibilizacao: date | None = None
+    ano_disponibilizacao: str | None = None
+    dt_prog_ini_receb_prop: date | None = None
+    dt_prog_fim_receb_prop: date | None = None
+    dt_prog_ini_emenda_par: date | None = None
+    dt_prog_fim_emenda_par: date | None = None
+    dt_prog_ini_benef_esp: date | None = None
+    dt_prog_fim_benef_esp: date | None = None
+    modalidade_programa: str | None = None
+    natureza_juridica_programa: str | None = None
+    uf_programa: str | None = None
+    acao_orcamentaria: str | None = None
+    nome_subtipo_programa: str | None = None
+    descricao_subtipo_programa: str | None = None
     
     # Add relationship to proponentes
     proponentes: list["Proponente"] = Relationship(
@@ -64,16 +64,16 @@ class Proponente(BaseModel, table=True):
     __tablename__ = "proponentes"
     
     id_proponente: int = Field(primary_key=True)
-    identif_proponente: str
-    nm_proponente: str
-    municipio_proponente: str
-    uf_proponente: str
-    endereco_proponente: str
-    bairro_proponente: str
-    cep_proponente: str
-    email_proponente: str
-    telefone_proponente: str
-    fax_proponente: str
+    identif_proponente: str | None = None
+    nm_proponente: str | None = None
+    municipio_proponente: str | None = None
+    uf_proponente: str | None = None
+    endereco_proponente: str | None = None
+    bairro_proponente: str | None = None
+    cep_proponente: str | None = None
+    email_proponente: str | None = None
+    telefone_proponente: str | None = None
+    fax_proponente: str | None = None
     
     # Add relationship to programas
     programas: list["Programa"] = Relationship(
@@ -87,41 +87,41 @@ class Proposta(BaseModel, table=True):
     
     id_proposta: int = Field(primary_key=True)
     id_proponente: int = Field(foreign_key=f"{db_schema}.proponentes.id_proponente")
-    uf_proponente: str
-    munic_proponente: str
-    cod_munic_ibge: str
-    cod_orgao_sup: str
-    desc_orgao_sup: str
-    natureza_juridica: str
-    nr_proposta: str
-    dia_prop: str
-    mes_prop: str
-    ano_prop: str
-    dia_proposta: date
-    cod_orgao: str
-    desc_orgao: str
-    modalidade: str
-    identif_proponente: str
-    nm_proponente: str
-    cep_proponente: str
-    endereco_proponente: str
-    bairro_proponente: str
-    nm_banco: str
-    situacao_conta: str
-    situacao_projeto_basico: str
-    sit_proposta: str
-    dia_inic_vigencia_proposta: date
-    dia_fim_vigencia_proposta: date
-    objeto_proposta: str
-    item_investimento: str
-    enviada_mandataria: str
-    vl_global_prop: float
-    vl_repasse_prop: float
-    vl_contrapartida_prop: float
-    nome_subtipo_proposta: str
-    descricao_subtipo_proposta: str
-    cd_agencia: str
-    cd_conta: str
+    uf_proponente: str | None = None
+    munic_proponente: str | None = None
+    cod_munic_ibge: str | None = None
+    cod_orgao_sup: str | None = None
+    desc_orgao_sup: str | None = None
+    natureza_juridica: str | None = None
+    nr_proposta: str | None = None
+    dia_prop: str | None = None
+    mes_prop: str | None = None
+    ano_prop: str | None = None
+    dia_proposta: date | None = None
+    cod_orgao: str | None = None
+    desc_orgao: str | None = None
+    modalidade: str | None = None
+    identif_proponente: str | None = None
+    nm_proponente: str | None = None
+    cep_proponente: str | None = None
+    endereco_proponente: str | None = None
+    bairro_proponente: str | None = None
+    nm_banco: str | None = None
+    situacao_conta: str | None = None
+    situacao_projeto_basico: str | None = None
+    sit_proposta: str | None = None
+    dia_inic_vigencia_proposta: date | None = None
+    dia_fim_vigencia_proposta: date | None = None
+    objeto_proposta: str | None = None
+    item_investimento: str | None = None
+    enviada_mandataria: str | None = None
+    vl_global_prop: float | None = None
+    vl_repasse_prop: float | None = None
+    vl_contrapartida_prop: float | None = None
+    nome_subtipo_proposta: str | None = None
+    descricao_subtipo_proposta: str | None = None
+    cd_agencia: str | None = None
+    cd_conta: str | None = None
     
     # Add relationship to programas
     programas: list["Programa"] = Relationship(
@@ -134,52 +134,52 @@ class JustificativasProposta(BaseModel, table=True):
     __tablename__ = "justificativas_proposta"
     
     id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)    
-    caracterizacao_interesses_reci: str
-    publico_alvo: str
-    problema_a_ser_resolvido: str
-    resultados_esperados: str
-    relacao_proposta_objetivos_pro: str
-    capacidade_tecnica: str
-    justificativa: str
+    caracterizacao_interesses_reci: str | None = None
+    publico_alvo: str | None = None
+    problema_a_ser_resolvido: str | None = None
+    resultados_esperados: str | None = None
+    relacao_proposta_objetivos_pro: str | None = None
+    capacidade_tecnica: str | None = None
+    justificativa: str | None = None
 
 # Tabela proposta_cancelada
 class PropostaCancelada(BaseModel, table=True):
     __tablename__ = "proposta_cancelada"
     
     id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
-    uf_proponente: str
-    munic_proponente: str
-    cod_munic_ibge: str
-    cod_orgao_sup: str
-    desc_orgao_sup: str
-    natureza_juridica: str
-    nr_proposta: str
-    dia_prop: int
-    mes_prop: int
-    ano_prop: int
-    dia_proposta: date
-    cod_orgao: str
-    desc_orgao: str
-    modalidade: str
-    identif_proponente: str
-    nm_proponente: str
-    cep_proponente: str
-    endereco_proponente: str
-    bairro_proponente: str
-    nm_banco: str
-    situacao_conta: str
-    situacao_projeto_basico: str
-    sit_proposta: str
-    dia_inic_vigencia_proposta: date
-    dia_fim_vigencia_proposta: date
-    objeto_proposta: str
-    item_investimento: str
-    enviada_mandataria: str
-    vl_global_prop: float
-    vl_repasse_prop: float
-    vl_contrapartida_prop: float
-    nome_subtipo_proposta: str
-    descricao_subtipo_proposta: str
+    uf_proponente: str | None = None
+    munic_proponente: str | None = None
+    cod_munic_ibge: str | None = None
+    cod_orgao_sup: str | None = None
+    desc_orgao_sup: str | None = None
+    natureza_juridica: str | None = None
+    nr_proposta: str | None = None
+    dia_prop: int | None = None
+    mes_prop: int | None = None
+    ano_prop: int | None = None
+    dia_proposta: date | None = None
+    cod_orgao: str | None = None
+    desc_orgao: str | None = None
+    modalidade: str | None = None
+    identif_proponente: str | None = None
+    nm_proponente: str | None = None
+    cep_proponente: str | None = None
+    endereco_proponente: str | None = None
+    bairro_proponente: str | None = None
+    nm_banco: str | None = None
+    situacao_conta: str | None = None
+    situacao_projeto_basico: str | None = None
+    sit_proposta: str | None = None
+    dia_inic_vigencia_proposta: date | None = None
+    dia_fim_vigencia_proposta: date | None = None
+    objeto_proposta: str | None = None
+    item_investimento: str | None = None
+    enviada_mandataria: str | None = None
+    vl_global_prop: float | None = None
+    vl_repasse_prop: float | None = None
+    vl_contrapartida_prop: float | None = None
+    nome_subtipo_proposta: str | None = None
+    descricao_subtipo_proposta: str | None = None
 
 
 class PropostaSelecaoPac(BaseModel, table=True):
@@ -188,14 +188,14 @@ class PropostaSelecaoPac(BaseModel, table=True):
     id_proposta_selecao_pac: int = Field(primary_key=True)
     id_programa: int = Field(foreign_key=f"{db_schema}.programa.id_programa")
     id_proponente: int = Field(foreign_key=f"{db_schema}.proponentes.id_proponente")
-    nr_proposta_selecao_pac: str
-    data_cadastro_proposta_selecao_pac: datetime
-    data_envio_proposta_selecao_pac: datetime
-    objeto_proposta_selecao_pac: str
-    situacao_proposta_selecao_pac: str
-    valor_total_proposta_selecao_pac: float
-    justificativa_proposta_selecao_pac: str
-    tem_anexo_proposta_selecao_pac: str
+    nr_proposta_selecao_pac: str | None = None
+    data_cadastro_proposta_selecao_pac: datetime | None = None
+    data_envio_proposta_selecao_pac: datetime | None = None
+    objeto_proposta_selecao_pac: str | None = None
+    situacao_proposta_selecao_pac: str | None = None
+    valor_total_proposta_selecao_pac: float | None = None
+    justificativa_proposta_selecao_pac: str | None = None
+    tem_anexo_proposta_selecao_pac: str | None = None
 
 
 class PerguntaSelecaoPac(BaseModel, table=True):
@@ -203,7 +203,7 @@ class PerguntaSelecaoPac(BaseModel, table=True):
     
     id_pergunta_selecao_pac: int = Field(primary_key=True)
     id_programa: int = Field(foreign_key=f"{db_schema}.programa.id_programa")
-    pergunta_selecao_pac: str
+    pergunta_selecao_pac: str | None = None
 
 
 class RespostaSelecaoPac(BaseModel, table=True):
@@ -211,7 +211,7 @@ class RespostaSelecaoPac(BaseModel, table=True):
 
     id_pergunta_selecao_pac: int = Field(primary_key=True, foreign_key=f"{db_schema}.pergunta_selecao_pac.id_pergunta_selecao_pac")
     id_proposta_selecao_pac: int = Field(primary_key=True, foreign_key=f"{db_schema}.proposta_selecao_pac.id_proposta_selecao_pac")
-    resposta_selecao_pac: str = Field(default=None, description="Resposta da pergunta da Proposta do Novo PAC")
+    resposta_selecao_pac: str | None = None
     
 
 class PropostaFormalizacaoPac(BaseModel, table=True):
@@ -219,24 +219,109 @@ class PropostaFormalizacaoPac(BaseModel, table=True):
     
     id_proposta_selecao_pac: int = Field(foreign_key=f"{db_schema}.proposta_selecao_pac.id_proposta_selecao_pac", primary_key=True)
     id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
-    nr_reservado_pac: str
+    nr_reservado_pac: str | None = None
 
 
 class PlanoAplicacaoDetalhado(BaseModel, table=True):
     __tablename__ = "plano_aplicacao_detalhado"
     
     id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
-    sigla: str
-    municipio: str
-    natureza_aquisicao: int
-    descricao_item: str
-    cep_item: str
-    endereco_item: str
-    tipo_despesa_item: str
-    natureza_despesa: str
-    sit_item: str
-    cod_natureza_despesa: str
-    qtd_item: int
-    valor_unitario_item: float
-    valor_total_item: float
+    sigla: str | None = None
+    municipio: str | None = None
+    natureza_aquisicao: int | None = None
+    descricao_item: str | None = None
+    cep_item: str | None = None
+    endereco_item: str | None = None
+    tipo_despesa_item: str | None = None
+    natureza_despesa: str | None = None
+    sit_item: str | None = None
+    cod_natureza_despesa: str | None = None
+    qtd_item: int | None = None
+    valor_unitario_item: float | None = None
+    valor_total_item: float | None = None
     id_item_pad: int = Field(primary_key=True)
+
+
+class Convenio(BaseModel, table=True):
+    __tablename__ = "convenio"
+
+    nr_convenio: int = Field(primary_key=True)
+    id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
+    dia: int | None = None
+    mes: int | None = None
+    ano: int | None = None
+    dia_assin_conv: date | None = None
+    sit_convenio: str | None = None
+    subsituacao_conv: str | None = None
+    situacao_publicacao: str | None = None
+    instrumento_ativo: str | None = None
+    ind_opera_obtv: str | None = None
+    nr_processo: str | None = None
+    ug_emitente: str | None = None
+    dia_publ_conv: date | None = None
+    dia_inic_vigenc_conv: date | None = None
+    dia_fim_vigenc_conv: date | None = None
+    dia_fim_vigenc_original_conv: date | None = None
+    dias_prest_contas: int | None = None
+    dia_limite_prest_contas: date | None = None
+    data_suspensiva: date | None = None
+    data_retirada_suspensiva: date | None = None
+    dias_clausula_suspensiva: int | None = None
+    situacao_contratacao: str | None = None
+    ind_assinado: str | None = None
+    motivo_suspensao: str | None = None
+    ind_foto: str | None = None
+    qtde_convenios: int | None = None
+    qtd_ta: int | None = None
+    qtd_proroga: int | None = None
+    vl_global_conv: float | None = None
+    vl_repasse_conv: float | None = None
+    vl_contrapartida_conv: float | None = None
+    vl_empenhado_conv: float | None = None
+    vl_desembolsado_conv: float | None = None
+    vl_saldo_reman_tesouro: float | None = None
+    vl_saldo_reman_convenente: float | None = None
+    vl_rendimento_aplicacao: float | None = None
+    vl_ingresso_contrapartida: float | None = None
+    vl_saldo_conta: float | None = None
+    valor_global_original_conv: float | None = None
+
+
+class MetaCronoFisico(BaseModel, table=True):
+    __tablename__ = "meta_crono_fisico"
+    
+    id_meta: int = Field(primary_key=True)
+    id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta")
+    nr_convenio: int = Field(foreign_key=f"{db_schema}.convenio.nr_convenio")
+    cod_programa: str | None = None
+    nome_programa: str | None = None
+    nr_meta: str | None = None
+    tipo_meta: str | None = None
+    desc_meta: str | None = None
+    data_inicio_meta: date | None = None
+    data_fim_meta: date | None = None
+    uf_meta: str | None = None
+    municipio_meta: str | None = None
+    endereco_meta: str | None = None
+    cep_meta: str | None = None
+    qtd_meta: int | None = None
+    und_fornecimento_meta: str | None = None
+    vl_meta: float | None = None
+
+
+class EtapaCronoFisico(BaseModel, table=True):
+    __tablename__ = "etapa_crono_fisico"
+    
+    id_etapa: int = Field(primary_key=True)
+    id_meta: int = Field(foreign_key=f"{db_schema}.meta_crono_fisico.id_meta")
+    nr_etapa: int | None = None
+    desc_etapa: str | None = None
+    data_inicio_etapa: date | None = None
+    data_fim_etapa: date | None = None
+    uf_etapa: str | None = None
+    municipio_etapa: str | None = None
+    endereco_etapa: str | None = None
+    cep_etapa: str | None = None
+    qtd_etapa: int | None = None
+    und_fornecimento_etapa: str | None = None
+    vl_etapa: float | None = None

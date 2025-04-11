@@ -259,4 +259,52 @@ class PlanoAplicacaoDetalhadoResponse(BaseModel):
 
 
 class PaginatedPlanoAplicacaoDetalhadoResponse(PaginatedResponseTemplate):
-    data: List[PlanoAplicacaoDetalhadoResponse] 
+    data: List[PlanoAplicacaoDetalhadoResponse]
+
+
+class MetaCronoFisicoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_meta: Optional[int]
+    id_proposta: Optional[int]
+    nr_convenio: Optional[int]
+    cod_programa: Optional[str]
+    nome_programa: Optional[str]
+    nr_meta: Optional[str]
+    tipo_meta: Optional[str]
+    desc_meta: Optional[str]
+    data_inicio_meta: Optional[date]
+    data_fim_meta: Optional[date]
+    uf_meta: Optional[str]
+    municipio_meta: Optional[str]
+    endereco_meta: Optional[str]
+    cep_meta: Optional[str]
+    qtd_meta: Optional[int]
+    und_fornecimento_meta: Optional[str]
+    vl_meta: Optional[float]
+
+
+class PaginatedMetaCronoFisicoResponse(PaginatedResponseTemplate):
+    data: List[MetaCronoFisicoResponse] 
+
+
+class EtapaCronoFisicoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_etapa: Optional[int]
+    id_meta: Optional[int]
+    nr_etapa: Optional[int]
+    desc_etapa: Optional[str]
+    data_inicio_etapa: Optional[date]
+    data_fim_etapa: Optional[date]
+    uf_etapa: Optional[str]
+    municipio_etapa: Optional[str]
+    endereco_etapa: Optional[str]
+    cep_etapa: Optional[str]
+    qtd_etapa: Optional[int]
+    und_fornecimento_etapa: Optional[str]
+    vl_etapa: Optional[float]
+
+
+class PaginatedEtapaCronoFisicoResponse(PaginatedResponseTemplate):
+    data: List[EtapaCronoFisicoResponse] 
