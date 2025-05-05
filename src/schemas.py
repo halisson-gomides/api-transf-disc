@@ -262,6 +262,55 @@ class PaginatedPlanoAplicacaoDetalhadoResponse(PaginatedResponseTemplate):
     data: List[PlanoAplicacaoDetalhadoResponse]
 
 
+class ConvenioResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    nr_convenio: Optional[int]
+    id_proposta: Optional[int]
+    dia: Optional[int]
+    mes: Optional[int]
+    ano: Optional[int]
+    dia_assin_conv: Optional[date]
+    sit_convenio: Optional[str]
+    subsituacao_conv: Optional[str]
+    situacao_publicacao: Optional[str]
+    instrumento_ativo: Optional[str]
+    ind_opera_obtv: Optional[str]
+    nr_processo: Optional[str]
+    ug_emitente: Optional[str]
+    dia_publ_conv: Optional[date]
+    dia_inic_vigenc_conv: Optional[date]
+    dia_fim_vigenc_conv: Optional[date]
+    dia_fim_vigenc_original_conv: Optional[date]
+    dias_prest_contas: Optional[int]
+    dia_limite_prest_contas: Optional[date]
+    data_suspensiva: Optional[date]
+    data_retirada_suspensiva: Optional[date]
+    dias_clausula_suspensiva: Optional[int]
+    situacao_contratacao: Optional[str]
+    ind_assinado: Optional[str]
+    motivo_suspensao: Optional[str]
+    ind_foto: Optional[str]
+    qtde_convenios: Optional[int]
+    qtd_ta: Optional[int]
+    qtd_proroga: Optional[int]
+    vl_global_conv: Optional[float]
+    vl_repasse_conv: Optional[float]
+    vl_contrapartida_conv: Optional[float]
+    vl_empenhado_conv: Optional[float]
+    vl_desembolsado_conv: Optional[float]
+    vl_saldo_reman_tesouro: Optional[float]
+    vl_saldo_reman_convenente: Optional[float]
+    vl_rendimento_aplicacao: Optional[float]
+    vl_ingresso_contrapartida: Optional[float]
+    vl_saldo_conta: Optional[float]
+    valor_global_original_conv: Optional[float]
+
+
+class PaginatedConvenioResponse(PaginatedResponseTemplate):
+    data: List[ConvenioResponse]
+
+
 class MetaCronoFisicoResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
 
@@ -308,3 +357,53 @@ class EtapaCronoFisicoResponse(BaseModel):
 
 class PaginatedEtapaCronoFisicoResponse(PaginatedResponseTemplate):
     data: List[EtapaCronoFisicoResponse] 
+
+
+class HistoricoSituacaoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_proposta: Optional[int]
+    nr_convenio: Optional[int]
+    dia_historico_sit: Optional[datetime]
+    historico_sit: Optional[str]
+    dias_historico_sit: Optional[int]
+    cod_historico_sit: Optional[int]
+
+
+class PaginatedHistoricoSituacaoResponse(PaginatedResponseTemplate):
+    data: List[HistoricoSituacaoResponse] 
+
+
+class SolicitacaoAlteracaoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_solicitacao: Optional[int]
+    nr_convenio: Optional[int]
+    nr_solicitacao: Optional[str]
+    situacao_solicitacao: Optional[str]
+    objeto_solicitacao: Optional[str]
+    data_solicitacao: Optional[date]
+
+
+class PaginatedSolicitacaoAlteracaoResponse(PaginatedResponseTemplate):
+    data: List[SolicitacaoAlteracaoResponse]
+
+
+class TermoAditivoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    nr_convenio: Optional[int]
+    id_solicitacao: Optional[int]
+    numero_ta: Optional[str]
+    tipo_ta: Optional[str]
+    vl_global_ta: Optional[float]
+    vl_repasse_ta: Optional[float]
+    vl_contrapartida_ta: Optional[float]
+    dt_assinatura_ta: Optional[date]
+    dt_inicio_ta: Optional[date]
+    dt_fim_ta: Optional[date]
+    justificativa_ta: Optional[str]
+
+
+class PaginatedTermoAditivoResponse(PaginatedResponseTemplate):
+    data: List[TermoAditivoResponse] 

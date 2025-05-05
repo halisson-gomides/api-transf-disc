@@ -33,9 +33,13 @@ class Settings(BaseSettings):
             "name": "Plano de Trabalho",
             "description": "Dados relativos aos Planos de Trabalho - Discricionárias e Legais.",
         },  
+        {
+            "name": "Instrumento",
+            "description": "Dados relativos a Instrumentos de Convêncios - Discricionárias e Legais.",
+        },
     ]
-    DEFAULT_PAGE_SIZE: int = 10
-    MAX_PAGE_SIZE: int = 200
+    DEFAULT_PAGE_SIZE: int = 100
+    MAX_PAGE_SIZE: int = 1000
     ERROR_MESSAGE_NO_PARAMS: str = "Nenhum parâmetro de consulta foi informado."
     ERROR_MESSAGE_INTERNAL: str = "Erro Interno Inesperado."
     STATS_USER: str 

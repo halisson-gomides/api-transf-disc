@@ -34,6 +34,9 @@ from src.routers.proposta_formalizacao_pac import prpfpac_router
 from src.routers.plano_aplicacao_detalhado import plapdet_router
 from src.routers.meta_crono_fisico import meta_crono_fisico_router
 from src.routers.etapa_crono_fisico import etapa_crono_fisico_router
+from src.routers.convenio import convenio_router
+from src.routers.historico_situacao import historico_situacao_router
+from src.routers.termo_aditivo import termo_aditivo_router
 
 
 # Configuração do logger
@@ -126,6 +129,9 @@ app.include_router(prpfpac_router)
 app.include_router(plapdet_router)
 app.include_router(meta_crono_fisico_router)
 app.include_router(etapa_crono_fisico_router)
+app.include_router(convenio_router)
+app.include_router(historico_situacao_router)
+app.include_router(termo_aditivo_router)
 
 
 

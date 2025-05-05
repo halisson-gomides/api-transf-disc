@@ -1,5 +1,4 @@
 from datetime import date, datetime
-from decimal import Decimal
 from sqlmodel import Field, Relationship, SQLModel
 from typing import Optional
 
@@ -325,3 +324,43 @@ class EtapaCronoFisico(BaseModel, table=True):
     qtd_etapa: int | None = None
     und_fornecimento_etapa: str | None = None
     vl_etapa: float | None = None
+
+
+class HistoricoSituacao(BaseModel, table=True):
+    __tablename__ = "historico_situacao"
+
+    id_proposta: int = Field(primary_key=True, foreign_key=f"{db_schema}.proposta.id_proposta")
+    nr_convenio: int = Field(primary_key=True, foreign_key=f"{db_schema}.convenio.nr_convenio")
+    dia_historico_sit: datetime | None  = Field(primary_key=True)
+    historico_sit: str | None = None
+    dias_historico_sit: int | None = None
+    cod_historico_sit: int | None = None
+
+
+class SolicitacaoAlteracao(BaseModel, table=True):
+    __tablename__ = "solicitacao_alteracao"
+
+    id_solicitacao: int = Field(primary_key=True)
+    nr_convenio: int | None = Field(foreign_key=f"{db_schema}.convenio.nr_convenio")
+    nr_solicitacao: str | None = None
+    situacao_solicitacao: str | None = None
+    objeto_solicitacao: str | None = None
+    data_solicitacao: date | None = None
+
+
+class TermoAditivo(BaseModel, table=True):
+    __tablename__ = "termo_aditivo"
+
+    # Assuming composite primary key based on DDL constraints and common patterns
+    # Adjust if the actual primary key is different
+    nr_convenio: int | None = Field(primary_key=True, foreign_key=f"{db_schema}.convenio.nr_convenio")
+    id_solicitacao: int | None = Field(primary_key=True, foreign_key=f"{db_schema}.solicitacao_alteracao.id_solicitacao")
+    numero_ta: str | None = Field(primary_key=True) # Assuming numero_ta helps form uniqueness    
+    tipo_ta: str | None = None
+    vl_global_ta: float | None = None
+    vl_repasse_ta: float | None = None
+    vl_contrapartida_ta: float | None = None
+    dt_assinatura_ta: date | None = None
+    dt_inicio_ta: date | None = None
+    dt_fim_ta: date | None = None
+    justificativa_ta: str | None = None
