@@ -37,6 +37,10 @@ class Settings(BaseSettings):
             "name": "Instrumento",
             "description": "Dados relativos a Instrumentos de Convêncios - Discricionárias e Legais.",
         },
+        {
+            "name": "Empenho",
+            "description": "Dados relativos a Empenho Orçamentário - Discricionárias e Legais.",
+        },
     ]
     DEFAULT_PAGE_SIZE: int = 100
     MAX_PAGE_SIZE: int = 1000

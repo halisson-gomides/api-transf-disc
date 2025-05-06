@@ -23,15 +23,15 @@ config = Settings()
 @cache(ttl=config.CACHE_TTL, lock=True)
 async def consulta_plano_aplicacao_detalhado(
     id_proposta: Optional[int] = Query(None, description='Código Sequencial do Sistema para uma Proposta'),
-    sigla: Literal['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'] = Query(None, description='UF cadastrada referente a localidade do item'),
+    sigla: Optional[Literal['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']] = Query(None, description='UF cadastrada referente a localidade do item'),
     municipio: Optional[str] = Query(None, description='Município cadastrado referente a localidade do item'),
     natureza_aquisicao: Optional[int] = Query(None, description='Código de natureza de aquisição', ge=1, le=3),
     descricao_item: Optional[str] = Query(None, description='Descrição do Item'),
     cep_item: Optional[str] = Query(None, description='CEP cadastrado referente a localidade do item'),
     endereco_item: Optional[str] = Query(None, description='Endereço cadastrado referente a localidade do item'),
-    tipo_despesa_item: Literal['SERVICO', 'BEM', 'OUTROS', 'TRIBUTO', 'OBRA', 'DESPESA_ADMINISTRATIVA'] = Query(None, description='Tipo da Despesa'),
+    tipo_despesa_item: Optional[Literal['SERVICO', 'BEM', 'OUTROS', 'TRIBUTO', 'OBRA', 'DESPESA_ADMINISTRATIVA']] = Query(None, description='Tipo da Despesa'),
     natureza_despesa: Optional[str] = Query(None, description='Natureza da Despesa referente ao item'),
-    sit_item: Literal['APROVADO','EM_COMPLEMENTACAO', ''] = Query(None, description='Situação atual do Item'),
+    sit_item: Optional[Literal['APROVADO','EM_COMPLEMENTACAO', '']] = Query(None, description='Situação atual do Item'),
     cod_natureza_despesa: Optional[str] = Query(None, description='Código da natureza da despesa'),
     qtd_item: Optional[int] = Query(None, description='Quantidade de Itens'),
     valor_unitario_item: Optional[float] = Query(None, description='Valor unitário do item', ge=0),

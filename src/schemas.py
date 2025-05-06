@@ -407,3 +407,43 @@ class TermoAditivoResponse(BaseModel):
 
 class PaginatedTermoAditivoResponse(PaginatedResponseTemplate):
     data: List[TermoAditivoResponse] 
+
+
+class ProrrogaOficioResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    nr_convenio: Optional[int]
+    nr_prorroga: Optional[str]
+    dt_inicio_prorroga: Optional[date]
+    dt_fim_prorroga: Optional[date]
+    dias_prorroga: Optional[int]
+    dt_assinatura_prorroga: Optional[date]
+    sit_prorroga: Optional[str]
+
+
+class PaginatedProrrogaOficioResponse(PaginatedResponseTemplate):
+    data: List[ProrrogaOficioResponse] 
+
+
+class EmpenhoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_empenho: Optional[int]
+    nr_convenio: Optional[int]
+    nr_empenho: Optional[str]
+    tipo_nota: Optional[str]
+    desc_tipo_nota: Optional[str]
+    data_emissao: Optional[date]
+    cod_situacao_empenho: Optional[str]
+    desc_situacao_empenho: Optional[str]
+    ug_emitente: Optional[str]
+    ug_responsavel: Optional[str]
+    fonte_recurso: Optional[str]
+    natureza_despesa: Optional[str]
+    plano_interno: Optional[str]
+    ptres: Optional[str]
+    valor_empenho: Optional[float]
+
+
+class PaginatedEmpenhoResponse(PaginatedResponseTemplate):
+    data: List[EmpenhoResponse] 

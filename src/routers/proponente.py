@@ -26,7 +26,7 @@ async def consulta_proponente(
     identif_proponente: Optional[str] = Query(None, description='CNPJ do Proponente'),
     nm_proponente: Optional[str] = Query(None, description='Nome da Entidade Proponente'),
     municipio_proponente: Optional[str] = Query(None, description='Município do Proponente'),
-    uf_proponente: Literal['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'] = Query(None, description=' UF do Proponente.'),
+    uf_proponente: Optional[Literal['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']] = Query(None, description=' UF do Proponente.'),
     endereco_proponente: Optional[str] = Query(None, description='Endereço do Proponente'),
     bairro_proponente: Optional[str] = Query(None, description='Bairro do Proponente'),
     cep_proponente: Optional[str] = Query(None, description='CEP do Proponente'),

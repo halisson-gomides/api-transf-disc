@@ -37,6 +37,8 @@ from src.routers.etapa_crono_fisico import etapa_crono_fisico_router
 from src.routers.convenio import convenio_router
 from src.routers.historico_situacao import historico_situacao_router
 from src.routers.termo_aditivo import termo_aditivo_router
+from src.routers.prorroga_oficio import prorroga_oficio_router
+from src.routers.empenho import empenho_router
 
 
 # Configuração do logger
@@ -132,6 +134,8 @@ app.include_router(etapa_crono_fisico_router)
 app.include_router(convenio_router)
 app.include_router(historico_situacao_router)
 app.include_router(termo_aditivo_router)
+app.include_router(prorroga_oficio_router)
+app.include_router(empenho_router)
 
 
 

@@ -28,7 +28,7 @@ async def consulta_etapa_crono_fisico(
     desc_etapa: Optional[str] = Query(None, description='Especificação da etapa vinculada a meta do cronograma físico'),
     data_inicio_etapa: Optional[str] = Query(None, description='Data de início prevista para execução da etapa', pattern="^[0-9]{4}-[0-9]{2}-[0-9]{2}$"),
     data_fim_etapa: Optional[str] = Query(None, description='Data fim prevista para execução da etapa', pattern="^[0-9]{4}-[0-9]{2}-[0-9]{2}$"),
-    uf_etapa: Literal['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'] = Query(None, description='UF cadastrada para a Etapa'),
+    uf_etapa: Optional[Literal['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']] = Query(None, description='UF cadastrada para a Etapa'),
     municipio_etapa: Optional[str] = Query(None, description='Município cadastrado para a Etapa'),
     pagina: int = Query(1, ge=1, description="Número da Página"),
     tamanho_da_pagina: int = Query(config.DEFAULT_PAGE_SIZE, le=config.MAX_PAGE_SIZE, ge=1, description="Tamanho da Página"),

@@ -364,3 +364,35 @@ class TermoAditivo(BaseModel, table=True):
     dt_inicio_ta: date | None = None
     dt_fim_ta: date | None = None
     justificativa_ta: str | None = None
+
+
+class ProrrogaOficio(BaseModel, table=True):
+    __tablename__ = "prorroga_oficio"
+
+    nr_convenio: int = Field(primary_key=True, foreign_key=f"{db_schema}.convenio.nr_convenio")
+    nr_prorroga: str = Field(primary_key=True) # Assuming nr_prorroga is part of a composite PK
+    dt_inicio_prorroga: date | None = None
+    dt_fim_prorroga: date = Field(primary_key=True)
+    dias_prorroga: int | None = None
+    dt_assinatura_prorroga: date | None = None
+    sit_prorroga: str | None = None
+
+
+class Empenho(BaseModel, table=True):
+    __tablename__ = "empenho"
+
+    id_empenho: int = Field(primary_key=True)
+    nr_convenio: int = Field(primary_key=True, foreign_key=f"{db_schema}.convenio.nr_convenio")
+    nr_empenho: str | None = None
+    tipo_nota: str | None = None
+    desc_tipo_nota: str | None = None
+    data_emissao: date | None = None
+    cod_situacao_empenho: str | None = None 
+    desc_situacao_empenho: str | None = None
+    ug_emitente: str | None = None
+    ug_responsavel: str | None = None
+    fonte_recurso: str | None = None
+    natureza_despesa: str | None = None
+    plano_interno: str | None = None
+    ptres: str | None = None
+    valor_empenho: float | None = None 
