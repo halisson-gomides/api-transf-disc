@@ -90,6 +90,7 @@ class PropostaResponse(BaseModel):
 class PaginatedPropostaResponse(PaginatedResponseTemplate):
     data: List[PropostaResponse]
 
+
 class ProgramaResponse(BaseModel):  
     model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
 
@@ -425,6 +426,13 @@ class PaginatedProrrogaOficioResponse(PaginatedResponseTemplate):
     data: List[ProrrogaOficioResponse] 
 
 
+class EmpenhoDesembolsoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_desembolso: Optional[int]
+    valor_grupo: Optional[float]
+
+    
 class EmpenhoResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
 
@@ -443,7 +451,29 @@ class EmpenhoResponse(BaseModel):
     plano_interno: Optional[str]
     ptres: Optional[str]
     valor_empenho: Optional[float]
+    desembolsos: Optional[List[EmpenhoDesembolsoResponse]] = []
 
 
 class PaginatedEmpenhoResponse(PaginatedResponseTemplate):
     data: List[EmpenhoResponse] 
+
+
+class DesembolsoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_desembolso: Optional[int]
+    nr_convenio: Optional[int]
+    dt_ult_desembolso: Optional[date]
+    qtd_dias_sem_desembolso: Optional[int]
+    data_desembolso: Optional[date]
+    ano_desembolso: Optional[int]
+    mes_desembolso: Optional[int]
+    nr_siafi: Optional[str]
+    ug_emitente_dh: Optional[str]
+    observacao_dh: Optional[str]
+    vl_desembolsado: Optional[float]
+
+
+class PaginatedDesembolsoResponse(PaginatedResponseTemplate):
+    data: List[DesembolsoResponse] 
+

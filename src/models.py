@@ -378,6 +378,20 @@ class ProrrogaOficio(BaseModel, table=True):
     sit_prorroga: str | None = None
 
 
+class EmpenhoDesembolso(BaseModel, table=True):
+    __tablename__ = "empenho_desembolso"
+
+    id_desembolso: int = Field(primary_key=True, foreign_key=f"{db_schema}.desembolso.id_desembolso")
+    id_empenho: int = Field(primary_key=True, foreign_key=f"{db_schema}.empenho.id_empenho")
+    valor_grupo: float | None = None 
+
+    # Relationships back to Empenho and Desembolso
+    # empenho_model refers to the Empenho instance this link object belongs to.
+    empenho_model: Optional["Empenho"] = Relationship(back_populates="desembolsos") 
+    # desembolso_model refers to the Desembolso instance this link object belongs to.
+    desembolso_model: Optional["Desembolso"] = Relationship(back_populates="empenho_details")
+
+
 class Empenho(BaseModel, table=True):
     __tablename__ = "empenho"
 
@@ -395,4 +409,30 @@ class Empenho(BaseModel, table=True):
     natureza_despesa: str | None = None
     plano_interno: str | None = None
     ptres: str | None = None
-    valor_empenho: float | None = None 
+    valor_empenho: float | None = None
+
+    # This relationship will provide a list of EmpenhoDesembolso (link model) instances.
+    # The name 'desembolsos' matches the field in EmpenhoResponse schema.
+    desembolsos: list["EmpenhoDesembolso"] = Relationship(back_populates="empenho_model")
+
+
+class Desembolso(BaseModel, table=True):
+    __tablename__ = "desembolso"
+
+    id_desembolso: int = Field(primary_key=True)
+    nr_convenio: int | None = Field(foreign_key=f"{db_schema}.convenio.nr_convenio")
+    dt_ult_desembolso: date | None = None
+    qtd_dias_sem_desembolso: int | None = None
+    data_desembolso: date | None = None
+    ano_desembolso: int | None = None
+    mes_desembolso: int | None = None
+    nr_siafi: str | None = None
+    ug_emitente_dh: str | None = None
+    observacao_dh: str | None = None
+    vl_desembolsado: float | None = None # DDL is numeric, using float for consistency 
+
+    # This relationship will provide a list of EmpenhoDesembolso (link model) instances.
+    # Used if you need to navigate from Desembolso to its associated Empenho details via the link table.
+    empenho_details: list["EmpenhoDesembolso"] = Relationship(back_populates="desembolso_model")
+
+

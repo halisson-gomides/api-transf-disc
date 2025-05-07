@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends, status, Query
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
 from sqlmodel import select, and_, cast, Date
 from src import models
 from src.utils import get_session, get_paginated_data
@@ -48,7 +49,9 @@ async def consulta_empenho( # Changed function name
                             detail=config.ERROR_MESSAGE_NO_PARAMS)
 
     try:
-        query = select(models.Empenho).where( # Changed model
+        query = select(models.Empenho).options(
+            selectinload(models.Empenho.desembolsos)
+        ).where( 
             and_(
                 models.Empenho.id_empenho == id_empenho if id_empenho is not None else True,
                 models.Empenho.nr_convenio == nr_convenio if nr_convenio is not None else True,
@@ -81,4 +84,4 @@ async def consulta_empenho( # Changed function name
     except Exception as e:
         # Log the exception e for debugging purposes if needed
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                            detail=config.ERROR_MESSAGE_INTERNAL)
+                            detail=e.__repr__()) #config.ERROR_MESSAGE_INTERNAL

@@ -41,6 +41,10 @@ class Settings(BaseSettings):
             "name": "Empenho",
             "description": "Dados relativos a Empenho Orçamentário - Discricionárias e Legais.",
         },
+        {
+            "name": "Desembolso",
+            "description": "Dados relativos a Desembolso Orçamentário - Discricionárias e Legais.",
+        },
     ]
     DEFAULT_PAGE_SIZE: int = 100
     MAX_PAGE_SIZE: int = 1000
