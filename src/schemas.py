@@ -312,6 +312,18 @@ class PaginatedConvenioResponse(PaginatedResponseTemplate):
     data: List[ConvenioResponse]
 
 
+class IngressoContrapartidaResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    nr_convenio: Optional[int]
+    dt_ingresso_contrapartida: Optional[date]
+    vl_ingresso_contrapartida: Optional[float]
+
+
+class PaginatedIngressoContrapartidaResponse(PaginatedResponseTemplate):
+    data: List[IngressoContrapartidaResponse]
+
+
 class MetaCronoFisicoResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
 
@@ -475,5 +487,38 @@ class DesembolsoResponse(BaseModel):
 
 
 class PaginatedDesembolsoResponse(PaginatedResponseTemplate):
-    data: List[DesembolsoResponse] 
+    data: List[DesembolsoResponse]
+
+
+class DesbloqueioCrResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    nr_convenio: Optional[int]
+    nr_ob: Optional[str]
+    data_cadastro: Optional[datetime]
+    data_envio: Optional[datetime]
+    tipo_recurso_desbloqueio: Optional[str]
+    vl_total_desbloqueio: Optional[float]
+    vl_desbloqueado: Optional[float]
+    vl_bloqueado: Optional[float]
+
+
+class PaginatedDesbloqueioCrResponse(PaginatedResponseTemplate):
+    data: List[DesbloqueioCrResponse]
+
+
+class CronogramaDesembolsoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_proposta: Optional[int]
+    nr_convenio: Optional[int]
+    nr_parcela_crono_desembolso: Optional[int]
+    mes_crono_desembolso: Optional[int]
+    ano_crono_desembolso: Optional[int]
+    tipo_resp_crono_desembolso: Optional[str]
+    valor_parcela_crono_desembolso: Optional[float]
+
+
+class PaginatedCronogramaDesembolsoResponse(PaginatedResponseTemplate):
+    data: List[CronogramaDesembolsoResponse]
 

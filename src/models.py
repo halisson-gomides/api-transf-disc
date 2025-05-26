@@ -286,6 +286,14 @@ class Convenio(BaseModel, table=True):
     valor_global_original_conv: float | None = None
 
 
+class IngressoContrapartida(BaseModel, table=True):
+    __tablename__ = "ingresso_contrapartida"
+    
+    nr_convenio: int = Field(foreign_key=f"{db_schema}.convenio.nr_convenio", primary_key=True)
+    dt_ingresso_contrapartida: date | None = Field(primary_key=True)
+    vl_ingresso_contrapartida: float | None = Field(primary_key=True)
+
+
 class MetaCronoFisico(BaseModel, table=True):
     __tablename__ = "meta_crono_fisico"
     
@@ -429,10 +437,33 @@ class Desembolso(BaseModel, table=True):
     nr_siafi: str | None = None
     ug_emitente_dh: str | None = None
     observacao_dh: str | None = None
-    vl_desembolsado: float | None = None # DDL is numeric, using float for consistency 
+    vl_desembolsado: float | None = None
 
-    # This relationship will provide a list of EmpenhoDesembolso (link model) instances.
-    # Used if you need to navigate from Desembolso to its associated Empenho details via the link table.
     empenho_details: list["EmpenhoDesembolso"] = Relationship(back_populates="desembolso_model")
+
+
+class DesbloqueioCr(BaseModel, table=True):
+    __tablename__ = "desbloqueio_cr"
+
+    nr_convenio: int = Field(primary_key=True, foreign_key=f"{db_schema}.convenio.nr_convenio")
+    nr_ob: str | None = Field(primary_key=True)
+    data_cadastro: datetime | None = Field(primary_key=True)
+    data_envio: datetime | None = None
+    tipo_recurso_desbloqueio: str | None = None
+    vl_total_desbloqueio: float | None = None
+    vl_desbloqueado: float | None = None
+    vl_bloqueado: float | None = None
+
+
+class CronogramaDesembolso(BaseModel, table=True):
+    __tablename__ = "cronograma_desembolso"
+    
+    id_proposta: int = Field(primary_key=True, foreign_key=f"{db_schema}.proposta.id_proposta")
+    nr_convenio: int | None = Field(primary_key=True, foreign_key=f"{db_schema}.convenio.nr_convenio")
+    nr_parcela_crono_desembolso: int | None = Field(primary_key=True)
+    mes_crono_desembolso: int | None = None
+    ano_crono_desembolso: int | None = None
+    tipo_resp_crono_desembolso: str | None = None
+    valor_parcela_crono_desembolso: float | None = None
 
 

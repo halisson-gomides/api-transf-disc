@@ -40,6 +40,9 @@ from src.routers.termo_aditivo import termo_aditivo_router
 from src.routers.prorroga_oficio import prorroga_oficio_router
 from src.routers.empenho import empenho_router
 from src.routers.desembolso import desembolso_router
+from src.routers.cronograma_desembolso import crono_router
+from src.routers.ingresso_contrapartida import ingresso_contrapartida_router
+from src.routers.desbloqueio_cr import desbloqueio_cr_router
 
 
 # Configuração do logger
@@ -138,7 +141,9 @@ app.include_router(termo_aditivo_router)
 app.include_router(prorroga_oficio_router)
 app.include_router(empenho_router)
 app.include_router(desembolso_router)
-
+app.include_router(crono_router)
+app.include_router(ingresso_contrapartida_router)
+app.include_router(desbloqueio_cr_router)
 
 
 @app.get("/docs", include_in_schema=False)
