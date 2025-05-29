@@ -467,3 +467,35 @@ class CronogramaDesembolso(BaseModel, table=True):
     valor_parcela_crono_desembolso: float | None = None
 
 
+class Pagamento(BaseModel, table=True):
+    __tablename__ = "pagamento"
+
+    nr_mov_fin: int = Field(primary_key=True)
+    nr_convenio: int | None = Field(primary_key=True, foreign_key=f"{db_schema}.convenio.nr_convenio")
+    identif_fornecedor: str | None = None
+    nome_fornecedor: str | None = None
+    tp_mov_financeira: str | None = None
+    data_pag: date | None = None
+    nr_dl: str | None = None
+    desc_dl: str | None = None
+    vl_pago: float | None = None
+
+
+class ObtvConvenente(BaseModel, table=True):
+    __tablename__ = "obtv_convenente"
+
+    nr_mov_fin: Optional[int] = Field(primary_key=True, foreign_key=f"{db_schema}.pagamento.nr_mov_fin")
+    identif_favorecido_obtv_conv: str | None = Field(primary_key=True)
+    nm_favorecido_obtv_conv: str | None = None
+    tp_aquisicao: str | None = None
+    vl_pago_obtv_conv: float | None = None
+
+
+class PagamentoTributo(BaseModel, table=True):
+    __tablename__ = "pagamento_tributo"
+
+    nr_convenio: int = Field(primary_key=True, foreign_key=f"{db_schema}.convenio.nr_convenio")
+    data_tributo: date | None = Field(primary_key=True)
+    vl_pag_tributos: float | None = None
+
+

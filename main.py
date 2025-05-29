@@ -43,6 +43,9 @@ from src.routers.desembolso import desembolso_router
 from src.routers.cronograma_desembolso import crono_router
 from src.routers.ingresso_contrapartida import ingresso_contrapartida_router
 from src.routers.desbloqueio_cr import desbloqueio_cr_router
+from src.routers.pagamento import pagamento_router
+from src.routers.obtv_convenente import obtv_convenente_router
+from src.routers.pagamento_tributo import pagamento_tributo_router
 
 
 # Configuração do logger
@@ -144,6 +147,9 @@ app.include_router(desembolso_router)
 app.include_router(crono_router)
 app.include_router(ingresso_contrapartida_router)
 app.include_router(desbloqueio_cr_router)
+app.include_router(pagamento_router)
+app.include_router(obtv_convenente_router)
+app.include_router(pagamento_tributo_router)
 
 
 @app.get("/docs", include_in_schema=False)

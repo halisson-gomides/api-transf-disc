@@ -45,6 +45,10 @@ class Settings(BaseSettings):
             "name": "Desembolso",
             "description": "Dados relativos a Desembolso Orçamentário - Discricionárias e Legais.",
         },
+        {
+            "name": "Movimentação Financeira",
+            "description": "Dados relativos a Movimentação Financeira - Discricionárias e Legais.",
+        },
     ]
     DEFAULT_PAGE_SIZE: int = 100
     MAX_PAGE_SIZE: int = 1000

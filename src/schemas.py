@@ -522,3 +522,47 @@ class CronogramaDesembolsoResponse(BaseModel):
 class PaginatedCronogramaDesembolsoResponse(PaginatedResponseTemplate):
     data: List[CronogramaDesembolsoResponse]
 
+
+class PagamentoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    nr_mov_fin: Optional[int]
+    nr_convenio: Optional[int]
+    identif_fornecedor: Optional[str]
+    nome_fornecedor: Optional[str]
+    tp_mov_financeira: Optional[str]
+    data_pag: Optional[date]
+    nr_dl: Optional[str]
+    desc_dl: Optional[str]
+    vl_pago: Optional[float]
+
+
+class PaginatedPagamentoResponse(PaginatedResponseTemplate):
+    data: List[PagamentoResponse]
+
+
+class ObtvConvenenteResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    nr_mov_fin: Optional[int]
+    identif_favorecido_obtv_conv: Optional[str]
+    nm_favorecido_obtv_conv: Optional[str]
+    tp_aquisicao: Optional[str]
+    vl_pago_obtv_conv: Optional[float]
+
+
+class PaginatedObtvConvenenteResponse(PaginatedResponseTemplate):
+    data: list[ObtvConvenenteResponse]
+
+
+class PagamentoTributoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    nr_convenio: Optional[int]
+    data_tributo: Optional[date]
+    vl_pag_tributos: Optional[float]
+
+
+class PaginatedPagamentoTributoResponse(PaginatedResponseTemplate):
+    data: list[PagamentoTributoResponse]
+
