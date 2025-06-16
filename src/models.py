@@ -241,6 +241,21 @@ class PlanoAplicacaoDetalhado(BaseModel, table=True):
     id_item_pad: int = Field(primary_key=True)
 
 
+class Emenda(BaseModel, table=True):
+    __tablename__ = "emenda"
+    
+    id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
+    qualif_proponente: str | None = None
+    cod_programa_emenda: str = Field(primary_key=True)
+    nr_emenda: int | None = Field(primary_key=True)
+    nome_parlamentar: str | None = None
+    beneficiario_emenda: str | None = None
+    ind_impositivo: str | None = None
+    tipo_parlamentar: str | None = None
+    valor_repasse_proposta_emenda: float | None = None
+    valor_repasse_emenda: float | None = None
+
+
 class Convenio(BaseModel, table=True):
     __tablename__ = "convenio"
 

@@ -49,6 +49,10 @@ class Settings(BaseSettings):
             "name": "Movimentação Financeira",
             "description": "Dados relativos a Movimentação Financeira - Discricionárias e Legais.",
         },
+        {
+            "name": "Emenda",
+            "description": "Dados relativos a Emendas Parlamentares - Discricionárias e Legais.",
+        }
     ]
     DEFAULT_PAGE_SIZE: int = 100
     MAX_PAGE_SIZE: int = 1000

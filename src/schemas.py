@@ -263,6 +263,25 @@ class PaginatedPlanoAplicacaoDetalhadoResponse(PaginatedResponseTemplate):
     data: List[PlanoAplicacaoDetalhadoResponse]
 
 
+class EmendaResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_proposta: Optional[int]
+    qualif_proponente: Optional[str]
+    cod_programa_emenda: Optional[str]
+    nr_emenda: Optional[int]
+    nome_parlamentar: Optional[str]
+    beneficiario_emenda: Optional[str]
+    ind_impositivo: Optional[str]
+    tipo_parlamentar: Optional[str]
+    valor_repasse_proposta_emenda: Optional[float]
+    valor_repasse_emenda: Optional[float]
+
+
+class PaginatedEmendaResponse(PaginatedResponseTemplate):
+    data: List[EmendaResponse]
+
+
 class ConvenioResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
 
