@@ -52,7 +52,12 @@ class Settings(BaseSettings):
         {
             "name": "Emenda",
             "description": "Dados relativos a Emendas Parlamentares - Discricionárias e Legais.",
+        },
+        {
+            "name": "Licitação/Contrato",
+            "description": "Dados relativos a Licitações e Contratos - Discricionárias e Legais.",
         }
+        
     ]
     DEFAULT_PAGE_SIZE: int = 100
     MAX_PAGE_SIZE: int = 1000

@@ -1,27 +1,31 @@
-*Segunda Etapa:
+Terceira Etapa:
 
-INSTRUMENTO
-siconv_convenio.csv.zip
-siconv_historico_situacao.csv.zip
-siconv_termo_aditivo.csv.zip
-siconv_prorroga_oficio.csv.zip
+LICITAÇÃO/CONTRATO
+siconv_licitacao.csv.zip
+siconv_contrato.csv.zip
 
-EMPENHO
-siconv_empenho.csv.zip
-siconv_empenho_desembolso.csv.zip
+OUTROS
+siconv_historico_projeto_basico.csv.zip
+siconv_resumo_fisico_financeiro.zip
+siconv_solicitacao_ajuste_pt.csv.zip
+siconv_solicitacao_alteracao.csv.zip
+siconv_solicitacao_rendimento_aplicacao.csv.zip
+siconv_coordenadas_obra.zip
 
-DESEMBOLSO
-siconv_desembolso.csv.zip
-siconv_cronograma_desembolso.csv.zip
-siconv_ingresso_contrapartida.csv.zip
-siconv_desbloqueio_cr.csv.zip
-
-MOVIMENTAÇÃO FINANCEIRA
-siconv_pagamento.csv.zip
-siconv_obtv_convenente.csv.zip
-siconv_pagamento_tributo.csv.zip
-EMENDA
-siconv_emenda.csv.zip
+MÓDULO EMPRESAS
+acomp_obras_contratos_medicoes_modulo_empresas
+acomp_obras_valores_itens_medicao_modulo_empresas
+inst_cont_contratos_lotes_empresas_modulo_empresas          
+inst_cont_metas_submetas_po_modulo_empresas           
+inst_cont_proposta_aio_modulo_empresas
+projeto_basico_acffo_modulo_empresas            
+projeto_basico_lae_modulo_empresas        
+projeto_basico_metas_modulo_empresas            
+projeto_basico_proposta_modulo_empresas         
+projeto_basico_submetas_modulo_empresas
+vrpl_lotes_fornecedores_licitacao_modulo_empresas     
+vrpl_metas_submetas_modulo_empresas       
+vrpl_proposta_licitacao_modulo_empresas
 
 
 DB SIZES

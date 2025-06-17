@@ -585,3 +585,48 @@ class PagamentoTributoResponse(BaseModel):
 class PaginatedPagamentoTributoResponse(PaginatedResponseTemplate):
     data: list[PagamentoTributoResponse]
 
+
+class LicitacaoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_licitacao: Optional[int]
+    nr_convenio: Optional[int]
+    nr_licitacao: Optional[str]
+    modalidade_licitacao: Optional[str]
+    tp_processo_compra: Optional[str]
+    tipo_licitacao: Optional[str]
+    nr_processo_licitacao: Optional[str]
+    data_publicacao_licitacao: Optional[date]
+    data_abertura_licitacao: Optional[date]
+    data_encerramento_licitacao: Optional[date]
+    data_homologacao_licitacao: Optional[date]
+    status_licitacao: Optional[str]
+    situacao_aceite_processo_execu: Optional[str]
+    sistema_origem: Optional[str]
+    situacao_sistema: Optional[str]
+    valor_licitacao: Optional[float]
+
+
+class PaginatedLicitacaoResponse(PaginatedResponseTemplate):
+    data: List[LicitacaoResponse]
+
+
+class ContratoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_licitacao: Optional[int]
+    nr_contrato: Optional[int]
+    data_publicacao_contrato: Optional[str]
+    data_assinatura_contrato: Optional[date]
+    data_inicio_vigencia_contrato: Optional[date]
+    data_fim_vigencia_contrato: Optional[date]
+    objeto_contrato: Optional[str]
+    tipo_aquisicao_contrato: Optional[str]
+    valor_global_contrato: Optional[float]
+    id_fornecedor_contrato: Optional[str]
+    nome_fornecedor_contrato: Optional[str]
+
+
+class PaginatedContratoResponse(PaginatedResponseTemplate):
+    data: List[ContratoResponse]
+

@@ -514,3 +514,40 @@ class PagamentoTributo(BaseModel, table=True):
     vl_pag_tributos: float | None = None
 
 
+class Licitacao(BaseModel, table=True):
+    __tablename__ = "licitacao"
+    
+    id_licitacao: int = Field(primary_key=True)
+    nr_convenio: int = Field(foreign_key=f"{db_schema}.convenio.nr_convenio")
+    nr_licitacao: str | None = None
+    modalidade_licitacao: str | None = None
+    tp_processo_compra: str | None = None
+    tipo_licitacao: str | None = None
+    nr_processo_licitacao: str | None = None
+    data_publicacao_licitacao: date | None = None
+    data_abertura_licitacao: date | None = None
+    data_encerramento_licitacao: date | None = None
+    data_homologacao_licitacao: date | None = None
+    status_licitacao: str | None = None
+    situacao_aceite_processo_execu: str | None = None
+    sistema_origem: str | None = None
+    situacao_sistema: str | None = None
+    valor_licitacao: float | None = None
+
+
+class Contrato(BaseModel, table=True):
+    __tablename__ = "contrato"
+    
+    id_licitacao: int = Field(foreign_key=f"{db_schema}.licitacao.id_licitacao", primary_key=True)
+    nr_contrato: int = Field(primary_key=True)
+    data_publicacao_contrato: str | None = None
+    data_assinatura_contrato: date | None = None
+    data_inicio_vigencia_contrato: date | None = None
+    data_fim_vigencia_contrato: date | None = None
+    objeto_contrato: str | None = None
+    tipo_aquisicao_contrato: str | None = None
+    valor_global_contrato: float | None = None
+    id_fornecedor_contrato: str | None = None
+    nome_fornecedor_contrato: str | None = None
+
+

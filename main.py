@@ -47,6 +47,8 @@ from src.routers.pagamento import pagamento_router
 from src.routers.obtv_convenente import obtv_convenente_router
 from src.routers.pagamento_tributo import pagamento_tributo_router
 from src.routers.emenda import emenda_router
+from src.routers.licitacao import licitacao_router
+from src.routers.contrato import contrato_router
 
 
 # Configuração do logger
@@ -152,6 +154,8 @@ app.include_router(pagamento_router)
 app.include_router(obtv_convenente_router)
 app.include_router(pagamento_tributo_router)
 app.include_router(emenda_router)
+app.include_router(licitacao_router)
+app.include_router(contrato_router)
 
 
 @app.get("/docs", include_in_schema=False)
