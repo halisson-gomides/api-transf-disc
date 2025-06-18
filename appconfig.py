@@ -56,6 +56,10 @@ class Settings(BaseSettings):
         {
             "name": "Licitação/Contrato",
             "description": "Dados relativos a Licitações e Contratos - Discricionárias e Legais.",
+        },
+        {
+            "name": "Outros",
+            "description": "Dados relativos aos demais tópicos - Discricionárias e Legais.",
         }
         
     ]

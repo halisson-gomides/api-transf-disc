@@ -630,3 +630,30 @@ class ContratoResponse(BaseModel):
 class PaginatedContratoResponse(PaginatedResponseTemplate):
     data: List[ContratoResponse]
 
+
+class HistoricoProjetoBasicoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_proposta: Optional[int]
+    data_hist_pb_tr: Optional[date]
+    situacao_hist_pb_tr: Optional[str]
+    evento_hist_pb_tr: Optional[str]
+    versao_doc_pb_tr: Optional[int]
+
+
+class PaginatedHistoricoProjetoBasicoResponse(PaginatedResponseTemplate):
+    data: List[HistoricoProjetoBasicoResponse]
+
+
+class ResumoFisicoFinanceiroResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_proposta: Optional[int]
+    valor_total_resumo_fisico_financeiro: Optional[float]
+    valor_realizado_resumo_fisico_financeiro: Optional[float]
+    percentual_execucao_resumo_fisico_financeiro: Optional[float]
+
+
+class PaginatedResumoFisicoFinanceiroResponse(PaginatedResponseTemplate):
+    data: List[ResumoFisicoFinanceiroResponse]
+

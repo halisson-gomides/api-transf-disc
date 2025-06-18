@@ -551,3 +551,22 @@ class Contrato(BaseModel, table=True):
     nome_fornecedor_contrato: str | None = None
 
 
+class HistoricoProjetoBasico(BaseModel, table=True):
+    __tablename__ = "historico_projeto_basico"
+    
+    id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
+    data_hist_pb_tr: date = Field(primary_key=True)
+    situacao_hist_pb_tr: str = Field(primary_key=True)
+    evento_hist_pb_tr: str | None = None
+    versao_doc_pb_tr: int | None = None
+
+
+class ResumoFisicoFinanceiro(BaseModel, table=True):
+    __tablename__ = "resumo_fisico_financeiro"
+    
+    id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
+    valor_total_resumo_fisico_financeiro: float | None = None
+    valor_realizado_resumo_fisico_financeiro: float | None = None
+    percentual_execucao_resumo_fisico_financeiro: float | None = None
+
+
