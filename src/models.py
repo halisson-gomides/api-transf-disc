@@ -364,7 +364,7 @@ class SolicitacaoAlteracao(BaseModel, table=True):
     __tablename__ = "solicitacao_alteracao"
 
     id_solicitacao: int = Field(primary_key=True)
-    nr_convenio: int | None = Field(foreign_key=f"{db_schema}.convenio.nr_convenio")
+    nr_convenio: int = Field(foreign_key=f"{db_schema}.convenio.nr_convenio", primary_key=True)
     nr_solicitacao: str | None = None
     situacao_solicitacao: str | None = None
     objeto_solicitacao: str | None = None
