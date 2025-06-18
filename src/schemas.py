@@ -657,3 +657,17 @@ class ResumoFisicoFinanceiroResponse(BaseModel):
 class PaginatedResumoFisicoFinanceiroResponse(PaginatedResponseTemplate):
     data: List[ResumoFisicoFinanceiroResponse]
 
+
+class SolicitacaoAjustePtResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_ajuste_pt: Optional[int]
+    id_proposta: Optional[int]
+    nr_ajuste_pt: Optional[str]
+    data_solicitacao_ajuste_pt: Optional[date]
+    situacao_solicitacao_ajuste_pt: Optional[str]
+
+
+class PaginatedSolicitacaoAjustePtResponse(PaginatedResponseTemplate):
+    data: List[SolicitacaoAjustePtResponse]
+

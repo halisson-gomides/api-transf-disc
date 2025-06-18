@@ -570,3 +570,13 @@ class ResumoFisicoFinanceiro(BaseModel, table=True):
     percentual_execucao_resumo_fisico_financeiro: float | None = None
 
 
+class SolicitacaoAjustePt(BaseModel, table=True):
+    __tablename__ = "solicitacao_ajuste_pt"
+    
+    id_ajuste_pt: int = Field(primary_key=True)
+    id_proposta: int = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
+    nr_ajuste_pt: str | None = None
+    data_solicitacao_ajuste_pt: date | None = None
+    situacao_solicitacao_ajuste_pt: str | None = None
+
+

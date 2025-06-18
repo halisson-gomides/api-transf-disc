@@ -51,6 +51,7 @@ from src.routers.licitacao import licitacao_router
 from src.routers.contrato import contrato_router
 from src.routers.historico_projeto_basico import historico_projeto_basico_router
 from src.routers.resumo_fisico_financeiro import resumo_fisico_financeiro_router
+from src.routers.solicitacao_ajuste_pt import solicitacao_ajuste_pt_router
 
 
 # Configuração do logger
@@ -160,6 +161,7 @@ app.include_router(licitacao_router)
 app.include_router(contrato_router)
 app.include_router(historico_projeto_basico_router)
 app.include_router(resumo_fisico_financeiro_router)
+app.include_router(solicitacao_ajuste_pt_router)
 
 
 @app.get("/docs", include_in_schema=False)
