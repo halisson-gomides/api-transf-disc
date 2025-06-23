@@ -601,3 +601,30 @@ class CoordenadasObra(BaseModel, table=True):
     longitude_cadastro_obra: float | None = None
 
 
+class AcompObrasContratosMedicoesModuloEmpresas(BaseModel, table=True):
+    __tablename__ = "acomp_obras_contratos_medicoes_modulo_empresas"
+    
+    id_proposta: int | None = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
+    id_contrato_medicao_acompanhamento_obra: int | None = Field(primary_key=True)
+    id_medicao_acompanhamento_obra: int | None = Field(primary_key=True)
+    data_inicio_obra_contrato_acompanhamento_obra: date | None = None
+    cnpj_fornecedor_contrato_acompanhamento_obra: str | None = None
+    numero_medicao_acompanhamento_obra: int | None = None
+    nr_ultima_medicao_acompanhamento_obra: int | None = None
+    situacao_medicao_acompanhamento_obra: str | None = None
+    data_inicio_medicao_objeto_acompanhamento_obra: date | None = None
+    data_fim_medicao_objeto_acompanhamento_obra: date | None = None
+    qtd_dias_sem_medicao_acompanhamento_obra: int | None = None
+
+
+class AcompObrasValoresItensMedicaoModuloEmpresas(BaseModel, table=True):
+    __tablename__ = "acomp_obras_valores_itens_medicao_modulo_empresas"
+
+    id_submeta_vrpl: int = Field(primary_key=True)
+    id_contrato_medicao_acompanhamento_obra: int | None = Field(primary_key=True)
+    valor_execucao_fisica_acumulada_total_acompanhamento_obra: float | None = None
+    valor_execucao_fisica_acumulada_concedente_acompanhamento_obra: float | None = None
+    valor_execucao_fisica_acumulada_convenente_acompanhamento_obra: float | None = None
+    valor_execucao_fisica_acumulada_empresa_acompanhamento_obra: float | None = None
+
+

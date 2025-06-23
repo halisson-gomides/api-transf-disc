@@ -55,6 +55,8 @@ from src.routers.solicitacao_ajuste_pt import solicitacao_ajuste_pt_router
 from src.routers.solicitacao_alteracao import solicitacao_alteracao_router
 from src.routers.solicitacao_rendimento_aplicacao import solicitacao_rendimento_aplicacao_router
 from src.routers.coordenadas_obra import coordenadas_obra_router
+from src.routers.acomp_obras_contratos_medicoes_modulo_empresas import acomp_obras_contratos_medicoes_modulo_empresas_router
+from src.routers.acomp_obras_valores_itens_medicao_modulo_empresas import acomp_obras_valores_itens_medicao_modulo_empresas_router
 
 
 
@@ -168,6 +170,8 @@ app.include_router(solicitacao_ajuste_pt_router)
 app.include_router(solicitacao_alteracao_router)
 app.include_router(solicitacao_rendimento_aplicacao_router)
 app.include_router(coordenadas_obra_router)
+app.include_router(acomp_obras_contratos_medicoes_modulo_empresas_router)
+app.include_router(acomp_obras_valores_itens_medicao_modulo_empresas_router)
 
 
 

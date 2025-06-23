@@ -60,6 +60,10 @@ class Settings(BaseSettings):
         {
             "name": "Outros",
             "description": "Dados relativos aos demais tópicos - Discricionárias e Legais.",
+        },
+        {
+            "name": "Módulo Empresas",
+            "description": "Dados relativos ao módulo de empresas - Discricionárias e Legais.",
         }
         
     ]

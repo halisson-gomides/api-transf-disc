@@ -701,3 +701,36 @@ class PaginatedCoordenadasObraResponse(PaginatedResponseTemplate):
     data: List[CoordenadasObraResponse]
 
 
+class AcompObrasContratosMedicoesModuloEmpresasResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_proposta: Optional[int]
+    id_contrato_medicao_acompanhamento_obra: Optional[int]
+    id_medicao_acompanhamento_obra: Optional[int]
+    data_inicio_obra_contrato_acompanhamento_obra: Optional[date]
+    cnpj_fornecedor_contrato_acompanhamento_obra: Optional[str]
+    numero_medicao_acompanhamento_obra: Optional[int]
+    nr_ultima_medicao_acompanhamento_obra: Optional[int]
+    situacao_medicao_acompanhamento_obra: Optional[str]
+    data_inicio_medicao_objeto_acompanhamento_obra: Optional[date]
+    data_fim_medicao_objeto_acompanhamento_obra: Optional[date]
+    qtd_dias_sem_medicao_acompanhamento_obra: Optional[int]
+
+class PaginatedAcompObrasContratosMedicoesModuloEmpresasResponse(PaginatedResponseTemplate):
+    data: list[AcompObrasContratosMedicoesModuloEmpresasResponse]
+
+
+class AcompObrasValoresItensMedicaoModuloEmpresasResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+    
+    id_submeta_vrpl: Optional[int]
+    id_contrato_medicao_acompanhamento_obra: Optional[int]
+    valor_execucao_fisica_acumulada_total_acompanhamento_obra: Optional[float]
+    valor_execucao_fisica_acumulada_concedente_acompanhamento_obra: Optional[float]
+    valor_execucao_fisica_acumulada_convenente_acompanhamento_obra: Optional[float]
+    valor_execucao_fisica_acumulada_empresa_acompanhamento_obra: Optional[float]
+
+class PaginatedAcompObrasValoresItensMedicaoModuloEmpresasResponse(PaginatedResponseTemplate):
+    data: list[AcompObrasValoresItensMedicaoModuloEmpresasResponse]
+
+
