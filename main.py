@@ -53,6 +53,8 @@ from src.routers.historico_projeto_basico import historico_projeto_basico_router
 from src.routers.resumo_fisico_financeiro import resumo_fisico_financeiro_router
 from src.routers.solicitacao_ajuste_pt import solicitacao_ajuste_pt_router
 from src.routers.solicitacao_alteracao import solicitacao_alteracao_router
+from src.routers.solicitacao_rendimento_aplicacao import solicitacao_rendimento_aplicacao_router
+from src.routers.coordenadas_obra import coordenadas_obra_router
 
 
 
@@ -103,8 +105,7 @@ app = FastAPI(lifespan=lifespan,
               title=config.APP_NAME, 
               description=config.APP_DESCRIPTION,
               openapi_tags=config.APP_TAGS,
-              default_response_class=ORJSONResponse,              
-              swagger_ui_parameters={"defaultModelExpandDepth": -1})
+              default_response_class=ORJSONResponse)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Incluindo Middlewares
@@ -165,6 +166,8 @@ app.include_router(historico_projeto_basico_router)
 app.include_router(resumo_fisico_financeiro_router)
 app.include_router(solicitacao_ajuste_pt_router)
 app.include_router(solicitacao_alteracao_router)
+app.include_router(solicitacao_rendimento_aplicacao_router)
+app.include_router(coordenadas_obra_router)
 
 
 
@@ -173,7 +176,8 @@ async def swagger_ui_html():
     return get_swagger_ui_html(
         openapi_url="/openapi.json",
         title=config.APP_NAME + " - Documentação",        
-        swagger_favicon_url="/static/icon.jpg"
+        swagger_favicon_url="/static/icon.jpg",
+        swagger_ui_parameters={"defaultModelsExpandDepth": -1}
     )
 
 

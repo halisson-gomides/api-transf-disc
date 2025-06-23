@@ -28,14 +28,6 @@ vrpl_metas_submetas_modulo_empresas       
 vrpl_proposta_licitacao_modulo_empresas
 
 
-DB SIZES
-----------
-TED - 56MB
-ESPECIAIS - 111MB
-FAF - 470MB
-DISCRICIONARIAS - 3353 MB (ATÉ O MOMENTO)
-OBRAS - 601MB
-
 PROMPTS
 -----------
 ajusta DDL: 
@@ -45,6 +37,19 @@ criação do endpoint:
 replace the content of `proposta_formalizacao_pac.py` file to the content based on `pergunta_selecao_pac.py` file, 
 changing the field names, it's descriptions, model and schema classes, endpoint name, router name and what ever else matter.  
 Please, add model class and schema class that are needed in the respectives files.
+----------------------------------------------------------------------------------------------------------------------------
+
+LIMPAR CACHE
+------------
+docker exec -i cache-disc redis-cli FLUSHALL
+
+DB SIZES
+----------
+TED - 56MB
+ESPECIAIS - 111MB
+FAF - 470MB
+DISCRICIONARIAS - 3353 MB (ATÉ O MOMENTO)
+OBRAS - 601MB
 
 ----------------------------------------------------------------------------------------------------------------------
 CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS

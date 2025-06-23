@@ -580,3 +580,24 @@ class SolicitacaoAjustePt(BaseModel, table=True):
     situacao_solicitacao_ajuste_pt: str | None = None
 
 
+class SolicitacaoRendimentoAplicacao(BaseModel, table=True):
+    __tablename__ = "solicitacao_rendimento_aplicacao"
+
+    id_solicitacao_rend_aplicacao: int = Field(primary_key=True)
+    nr_convenio: int | None = Field(foreign_key=f"{db_schema}.convenio.nr_convenio", primary_key=True)
+    nr_solicitacao_rend_aplicacao: int | None = Field(primary_key=True)
+    status_solicitacao_rend_aplicacao: str | None = None
+    data_solicitacao_rend_aplicacao: date | None = None
+    valor_solicitacao_rend_aplicacao: float | None = None
+    valor_aprovado_solicitacao_rend_aplicacao: float | None = None
+
+
+class CoordenadasObra(BaseModel, table=True):
+    __tablename__ = "coordenadas_obra"
+
+    id_proposta: int | None = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
+    nome_projeto_cadastro_obra: str | None = None
+    latitude_cadastro_obra: float | None = None
+    longitude_cadastro_obra: float | None = None
+
+

@@ -671,3 +671,33 @@ class SolicitacaoAjustePtResponse(BaseModel):
 class PaginatedSolicitacaoAjustePtResponse(PaginatedResponseTemplate):
     data: List[SolicitacaoAjustePtResponse]
 
+
+class SolicitacaoRendimentoAplicacaoResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_solicitacao_rend_aplicacao: Optional[int]
+    nr_convenio: Optional[int]
+    nr_solicitacao_rend_aplicacao: Optional[int]
+    status_solicitacao_rend_aplicacao: Optional[str]
+    data_solicitacao_rend_aplicacao: Optional[date]
+    valor_solicitacao_rend_aplicacao: Optional[float]
+    valor_aprovado_solicitacao_rend_aplicacao: Optional[float]
+
+
+class PaginatedSolicitacaoRendimentoAplicacaoResponse(PaginatedResponseTemplate):
+    data: List[SolicitacaoRendimentoAplicacaoResponse]
+
+
+class CoordenadasObraResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_proposta: Optional[int]
+    nome_projeto_cadastro_obra: Optional[str]
+    latitude_cadastro_obra: Optional[float]
+    longitude_cadastro_obra: Optional[float]
+
+
+class PaginatedCoordenadasObraResponse(PaginatedResponseTemplate):
+    data: List[CoordenadasObraResponse]
+
+
