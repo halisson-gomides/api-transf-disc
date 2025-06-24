@@ -734,3 +734,36 @@ class PaginatedAcompObrasValoresItensMedicaoModuloEmpresasResponse(PaginatedResp
     data: list[AcompObrasValoresItensMedicaoModuloEmpresasResponse]
 
 
+class InstContPropostaAioModuloEmpresasResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+    
+    id_proposta_instrumento_contratual: Optional[int]
+    id_proposta: Optional[int]
+    id_aio_instrumento_contratual: Optional[int]
+    situacao_aio_instrumento_contratual: Optional[str]
+    data_emissao_aio_instrumento_contratual: Optional[date]
+
+class PaginatedInstContPropostaAioModuloEmpresasResponse(PaginatedResponseTemplate):
+    data: list[InstContPropostaAioModuloEmpresasResponse]
+
+
+class InstContContratosLotesEmpresasModuloEmpresasResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+    
+    id_contrato_instrumento_contratual: Optional[int]
+    id_proposta_instrumento_contratual: Optional[int]
+    id_lote_instrumento_contratual: Optional[int]
+    numero_instrumento_contratual: Optional[str]
+    situacao_instrumento_contratual: Optional[str]
+    data_assinatura_instrumento_contratual: Optional[date]
+    data_inicio_vigencia_instrumento_contratual: Optional[date]
+    data_fim_vigencia_instrumento_contratual: Optional[date]
+    numero_lote_instrumento_contratual: Optional[int]
+    razao_social_empresa_executora_instrumento_contratual: Optional[str]
+    tipo_identificacao_empresa_executora_instrumento_contratual: Optional[str]
+    identificacao_empresa_executora_instrumento_contratual: Optional[str]
+
+class PaginatedInstContContratosLotesEmpresasModuloEmpresasResponse(PaginatedResponseTemplate):
+    data: list[InstContContratosLotesEmpresasModuloEmpresasResponse]
+
+

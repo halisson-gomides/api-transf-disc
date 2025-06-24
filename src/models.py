@@ -628,3 +628,30 @@ class AcompObrasValoresItensMedicaoModuloEmpresas(BaseModel, table=True):
     valor_execucao_fisica_acumulada_empresa_acompanhamento_obra: float | None = None
 
 
+class InstContPropostaAioModuloEmpresas(BaseModel, table=True):
+    __tablename__ = "inst_cont_proposta_aio_modulo_empresas"
+
+    id_proposta_instrumento_contratual: int = Field(primary_key=True)
+    id_proposta: int | None = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
+    id_aio_instrumento_contratual: int | None = Field(primary_key=True)
+    situacao_aio_instrumento_contratual: str | None = None
+    data_emissao_aio_instrumento_contratual: date | None = None
+
+
+class InstContContratosLotesEmpresasModuloEmpresas(BaseModel, table=True):
+    __tablename__ = "inst_cont_contratos_lotes_empresas_modulo_empresas"
+
+    id_contrato_instrumento_contratual: int = Field(primary_key=True)
+    id_proposta_instrumento_contratual: int | None = Field(foreign_key=f"{db_schema}.inst_cont_proposta_aio_modulo_empresas.id_proposta_instrumento_contratual", primary_key=True)
+    id_lote_instrumento_contratual: int | None = None
+    numero_instrumento_contratual: str | None = None
+    situacao_instrumento_contratual: str | None = None
+    data_assinatura_instrumento_contratual: date | None = None
+    data_inicio_vigencia_instrumento_contratual: date | None = None
+    data_fim_vigencia_instrumento_contratual: date | None = None
+    numero_lote_instrumento_contratual: int | None = Field(primary_key=True)
+    razao_social_empresa_executora_instrumento_contratual: str | None = None
+    tipo_identificacao_empresa_executora_instrumento_contratual: str | None = None
+    identificacao_empresa_executora_instrumento_contratual: str | None = None
+
+
