@@ -767,3 +767,26 @@ class PaginatedInstContContratosLotesEmpresasModuloEmpresasResponse(PaginatedRes
     data: list[InstContContratosLotesEmpresasModuloEmpresasResponse]
 
 
+class InstContMetasSubmetasPoModuloEmpresasResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+    
+    id_meta_instrumento_contratual: Optional[int]
+    id_submeta_instrumento_contratual: Optional[int]
+    id_po_instrumento_contratual: Optional[int]
+    id_proposta_instrumento_contratual: Optional[int]
+    id_lote_instrumento_contratual: Optional[int]
+    numero_meta_instrumento_contratual: Optional[int]
+    descricao_meta_instrumento_contratual: Optional[str]
+    numero_submeta_instrumento_contratual: Optional[str]
+    descricao_submeta_instrumento_contratual: Optional[str]
+    situacao_submeta_instrumento_contratual: Optional[str]
+    valor_total_licitado_instrumento_contratual: Optional[float]
+    data_previsao_inicio_obra_instrumento_contratual: Optional[date]
+    database_po_vrpl_instrumento_contratual: Optional[date]
+    sigla_localidade_po_instrumento_contratual: Optional[str]
+    acompanhado_por_evento_po_instrumento_contratual: Optional[int]
+
+class PaginatedInstContMetasSubmetasPoModuloEmpresasResponse(PaginatedResponseTemplate):
+    data: list[InstContMetasSubmetasPoModuloEmpresasResponse]
+
+

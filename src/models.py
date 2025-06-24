@@ -655,3 +655,23 @@ class InstContContratosLotesEmpresasModuloEmpresas(BaseModel, table=True):
     identificacao_empresa_executora_instrumento_contratual: str | None = None
 
 
+class InstContMetasSubmetasPoModuloEmpresas(BaseModel, table=True):
+    __tablename__ = "inst_cont_metas_submetas_po_modulo_empresas"
+
+    id_meta_instrumento_contratual: int | None = Field(primary_key=True)
+    id_submeta_instrumento_contratual: int = Field(primary_key=True)
+    id_po_instrumento_contratual: int | None = Field(primary_key=True)
+    id_proposta_instrumento_contratual: int | None = Field(foreign_key=f"{db_schema}.inst_cont_proposta_aio_modulo_empresas.id_proposta_instrumento_contratual", primary_key=True)
+    id_lote_instrumento_contratual: int | None = Field(primary_key=True)
+    numero_meta_instrumento_contratual: int | None = Field(primary_key=True)
+    descricao_meta_instrumento_contratual: str | None = None
+    numero_submeta_instrumento_contratual: str | None = Field(primary_key=True)
+    descricao_submeta_instrumento_contratual: str | None = None
+    situacao_submeta_instrumento_contratual: str | None = None
+    valor_total_licitado_instrumento_contratual: float | None = None
+    data_previsao_inicio_obra_instrumento_contratual: date | None = None
+    database_po_vrpl_instrumento_contratual: date | None = None
+    sigla_localidade_po_instrumento_contratual: str | None = None
+    acompanhado_por_evento_po_instrumento_contratual: int | None = None
+
+
