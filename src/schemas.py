@@ -790,3 +790,48 @@ class PaginatedInstContMetasSubmetasPoModuloEmpresasResponse(PaginatedResponseTe
     data: list[InstContMetasSubmetasPoModuloEmpresasResponse]
 
 
+class ProjetoBasicoAcffoModuloEmpresasResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_acffo: Optional[int]
+    id_proposta: Optional[int]
+    ultima_versao_projeto_basico: Optional[int]
+    apelido_empreendimento_projeto_basico: Optional[str]
+    situacao_projeto_basico: Optional[str]
+    situacao_spa: Optional[str]
+    data_aceite_projeto_basico: Optional[datetime]
+
+class PaginatedProjetoBasicoAcffoModuloEmpresasResponse(PaginatedResponseTemplate):
+    data: List[ProjetoBasicoAcffoModuloEmpresasResponse]
+
+
+class ProjetoBasicoLaeModuloEmpresasResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_qci_acffo: Optional[int]
+    id_acffo: Optional[int]
+    id_proposta: Optional[int]
+    situacao_lae_projeto_basico: Optional[str]
+    emissao_lae_projeto_basico: Optional[str]
+    data_emissao_lae_projeto_basico: Optional[datetime]
+
+class PaginatedProjetoBasicoLaeModuloEmpresasResponse(PaginatedResponseTemplate):
+    data: List[ProjetoBasicoLaeModuloEmpresasResponse]
+
+
+class ProjetoBasicoMetasModuloEmpresasResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_meta_projeto_basico: Optional[int]
+    id_qci_acffo: Optional[int]
+    numero_meta_projeto_basico: Optional[int]
+    descricao_meta_projeto_basico: Optional[str]
+    nome_item_investimento_meta: Optional[str]
+    descricao_subitem_investimento_meta: Optional[str]
+    quantidade_itens_meta_projeto_basico: Optional[float]
+    unidade_item_investimento_meta: Optional[str]
+
+class PaginatedProjetoBasicoMetasModuloEmpresasResponse(PaginatedResponseTemplate):
+    data: List[ProjetoBasicoMetasModuloEmpresasResponse]
+
+

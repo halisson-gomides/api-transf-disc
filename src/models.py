@@ -675,3 +675,42 @@ class InstContMetasSubmetasPoModuloEmpresas(BaseModel, table=True):
     acompanhado_por_evento_po_instrumento_contratual: int | None = None
 
 
+# Tabela projeto_basico_acffo_modulo_empresas
+class ProjetoBasicoAcffoModuloEmpresas(BaseModel, table=True):
+    __tablename__ = "projeto_basico_acffo_modulo_empresas"
+
+    id_acffo: int = Field(primary_key=True)
+    id_proposta: int | None = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
+    ultima_versao_projeto_basico: int | None = Field(primary_key=True)
+    apelido_empreendimento_projeto_basico: str | None = None
+    situacao_projeto_basico: str | None = None
+    situacao_spa: str | None = None
+    data_aceite_projeto_basico: datetime | None = None
+
+
+# Tabela projeto_basico_lae_modulo_empresas
+class ProjetoBasicoLaeModuloEmpresas(BaseModel, table=True):
+    __tablename__ = "projeto_basico_lae_modulo_empresas"
+
+    id_qci_acffo: int = Field(primary_key=True)
+    id_acffo: int | None = Field(foreign_key=f"{db_schema}.projeto_basico_acffo_modulo_empresas.id_acffo", primary_key=True)
+    id_proposta: int | None = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
+    situacao_lae_projeto_basico: str | None = None
+    emissao_lae_projeto_basico: str | None = None
+    data_emissao_lae_projeto_basico: datetime | None = None
+
+
+# Tabela projeto_basico_metas_modulo_empresas
+class ProjetoBasicoMetasModuloEmpresas(BaseModel, table=True):
+    __tablename__ = "projeto_basico_metas_modulo_empresas"
+
+    id_meta_projeto_basico: int = Field(primary_key=True)
+    id_qci_acffo: int | None = Field(foreign_key=f"{db_schema}.projeto_basico_lae_modulo_empresas.id_qci_acffo", primary_key=True)
+    numero_meta_projeto_basico: int | None = Field(primary_key=True)
+    descricao_meta_projeto_basico: str | None = None
+    nome_item_investimento_meta: str | None = None
+    descricao_subitem_investimento_meta: str | None = None
+    quantidade_itens_meta_projeto_basico: float | None = None
+    unidade_item_investimento_meta: str | None = None
+
+
