@@ -835,3 +835,37 @@ class PaginatedProjetoBasicoMetasModuloEmpresasResponse(PaginatedResponseTemplat
     data: List[ProjetoBasicoMetasModuloEmpresasResponse]
 
 
+class ProjetoBasicoPropostaModuloEmpresasResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_proposta_acffo: Optional[int]
+    id_proposta: Optional[int]
+    valor_global_proposta_projeto_basico: Optional[float]
+
+class PaginatedProjetoBasicoPropostaModuloEmpresasResponse(PaginatedResponseTemplate):
+    data: List[ProjetoBasicoPropostaModuloEmpresasResponse]
+
+
+class ProjetoBasicoSubmetasModuloEmpresasResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True, extra="forbid")
+
+    id_submeta_projeto_basico: Optional[int]
+    id_meta_projeto_basico: Optional[int]
+    lote_submeta_projeto_basico: Optional[int]
+    numero_submeta_projeto_basico: Optional[str]
+    descricao_submeta_projeto_basico: Optional[str]
+    situacao_submeta_projeto_basico: Optional[str]
+    valor_repasse_submeta_projeto_basico: Optional[float]
+    valor_contrapartida_submeta_projeto_basico: Optional[float]
+    valor_outros_submeta_projeto_basico: Optional[float]
+    valor_total_submeta_projeto_basico: Optional[float]
+    data_previsao_inicio_obra_projeto_basico: Optional[date]
+    quantidade_meses_duracao_obra_projeto_basico: Optional[int]
+    database_obra_projeto_basico: Optional[date]
+    sigla_localidade_obra_projeto_basico: Optional[str]
+    obra_acompanhada_por_evento_projeto_basico: Optional[str]
+
+class PaginatedProjetoBasicoSubmetasModuloEmpresasResponse(PaginatedResponseTemplate):
+    data: List[ProjetoBasicoSubmetasModuloEmpresasResponse]
+
+

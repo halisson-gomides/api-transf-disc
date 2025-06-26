@@ -714,3 +714,33 @@ class ProjetoBasicoMetasModuloEmpresas(BaseModel, table=True):
     unidade_item_investimento_meta: str | None = None
 
 
+# Tabela projeto_basico_proposta_modulo_empresas
+class ProjetoBasicoPropostaModuloEmpresas(BaseModel, table=True):
+    __tablename__ = "projeto_basico_proposta_modulo_empresas"
+
+    id_proposta_acffo: int = Field(primary_key=True)
+    id_proposta: int | None = Field(foreign_key=f"{db_schema}.proposta.id_proposta", primary_key=True)
+    valor_global_proposta_projeto_basico: float | None = None
+
+
+# Tabela projeto_basico_submetas_modulo_empresas
+class ProjetoBasicoSubmetasModuloEmpresas(BaseModel, table=True):
+    __tablename__ = "projeto_basico_submetas_modulo_empresas"
+
+    id_submeta_projeto_basico: int = Field(primary_key=True)
+    id_meta_projeto_basico: int | None = Field(foreign_key=f"{db_schema}.projeto_basico_metas_modulo_empresas.id_meta_projeto_basico", primary_key=True)
+    lote_submeta_projeto_basico: int | None = Field(primary_key=True)
+    numero_submeta_projeto_basico: str | None = None
+    descricao_submeta_projeto_basico: str | None = None
+    situacao_submeta_projeto_basico: str | None = None
+    valor_repasse_submeta_projeto_basico: float | None = None
+    valor_contrapartida_submeta_projeto_basico: float | None = None
+    valor_outros_submeta_projeto_basico: float | None = None
+    valor_total_submeta_projeto_basico: float | None = None
+    data_previsao_inicio_obra_projeto_basico: date | None = None
+    quantidade_meses_duracao_obra_projeto_basico: int | None = None
+    database_obra_projeto_basico: date | None = None
+    sigla_localidade_obra_projeto_basico: str | None = None
+    obra_acompanhada_por_evento_projeto_basico: str | None = None
+
+
